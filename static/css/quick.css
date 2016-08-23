@@ -36,7 +36,7 @@
     content: ' ';
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-right: 8px solid #81beff;
+    // border-right: 8px solid #81beff;
 }
 
 #tv {
@@ -59,6 +59,7 @@
 
 #tv-scroller {
     position: absolute;
+    transition: top .2s;
 }
 
 #tv-wrap {
