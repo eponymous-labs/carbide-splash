@@ -97,6 +97,7 @@ var tv = document.getElementById('tv')
 var tv_img = document.getElementById('tv-img')
 var tv_markers = [].slice.call(document.querySelectorAll('[image]'))
 var tv_pointer = document.getElementById('quick-pointer')
+var tv_scroller = document.getElementById('tv-scroller')
 var quick_content = document.getElementById('quick-content')
 
 var active_marker, active_image
@@ -106,9 +107,9 @@ tv_markers.forEach(function(tv_marker) {
 	img.src = tv_marker.getAttribute('image')
 	img.autoplay = true
 	img.loop = true
-	img.style.display = 'none'
+	// img.style.display = 'none'
 	tv_marker.img = img
-	tv.appendChild(img)
+	tv_scroller.appendChild(img)
 
 	var inline_img = document.createElement('video')
 	inline_img.src = tv_marker.getAttribute('image')
@@ -123,16 +124,21 @@ document.addEventListener('scroll', function (e) {
 
 	if(active_marker){
 		// active_marker.className= '';
-		active_marker.img.style.display = 'none'
+		// active_marker.img.style.display = 'none'
 	}
 
 	active_marker = nearest(tv_markers, function(tv_marker){return tv_marker.getBoundingClientRect().top}, innerHeight/2)
 	// active_marker.className = 'active'
-	active_marker.img.style.display = 'block'
+	// active_marker.img.style.display = 'block'
 
+
+	var diff = tv_scroller.getBoundingClientRect().top -
+		active_marker.img.getBoundingClientRect().top
+
+	tv_scroller.style.top = diff + 'px'
 
 	var rect = tv_wrap.getBoundingClientRect()
-	var tv_height = tv.getBoundingClientRect().height
+	var tv_height = active_marker.img.getBoundingClientRect().height
 	var top_offset = innerHeight/2 - tv_height/2
 	var tv_bottom = tv_height + top_offset
 
@@ -145,9 +151,11 @@ document.addEventListener('scroll', function (e) {
 	} else if (rect.bottom <= tv_bottom){
 		tv.className = 'bottom'
 		tv.parentElement.className = 'bottom'
+		tv_scroller.style.top = 'initial'
 	} else {
 		tv.className = ''
 		tv.parentElement.className = ''
+		tv_scroller.style.top = 'initial'
 	}
 })
 

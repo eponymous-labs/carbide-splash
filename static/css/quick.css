@@ -40,16 +40,25 @@
 }
 
 #tv {
-    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.57);
-    border-radius: 5px;
     // position: relative;
-    overflow: hidden;;
+    // overflow: hidden;
+    height: 0;
 }
 
 #tv video, #tv-wrap {
     width:600px;
     transition: .2s;
     display: block;
+}
+
+#tv video {
+    margin: 10px 0;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.57);
+    border-radius: 5px;
+}
+
+#tv-scroller {
+    position: absolute;
 }
 
 #tv-wrap {
