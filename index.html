@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/splash.css">
+    <link rel="stylesheet" type="text/css" href="static/css/quick.css">
+    <link rel="stylesheet" type="text/css" href="static/css/docs.css">
+    <link rel="stylesheet" type="text/css" href="static/css/prior-art.css">
+</head>
+<body>
+<div id='header'>
+    
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600" rel="stylesheet"> -->
+    <!-- <div>Alpha Release | Don't mind the bugs!</div> -->
+    <div class='spacer'></div>
+    <a href="//alpha.trycarbide.com/@bijection">Examples</a>
+    <a href="//alpha.trycarbide.com/anonymous">Anonymous</a>    
+    <a href="//alpha.trycarbide.com/me">My Notebooks</a>
+    <a href="/">New Notebook</a>
+</div>
+<div id="splash">
+    <div id='intro'>
+        <div>
+            <div id='title'>
+                <svg id='logo' viewBox="0 0 105 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Artboard-3-Copy-7" transform="translate(-1310.000000, -92.000000)">
+                            <path d="M1410.78688,128.032486 L1383.05486,146.729325 C1377.21873,138.540677 1364.81247,137.512795 1357.6388,144.602599 C1350.86511,151.296015 1351.54391,162.548954 1359.04157,168.449597 C1367.22735,174.891419 1379.85151,172.091625 1384.3881,162.850724 L1414.78086,176.972987 C1409.47945,189.283197 1398.21003,203.565305 1373.3674,204.646229 L1374.60244,219.81286 C1353.7674,216.799461 1334.70715,203.472839 1328.03452,183.581822 L1315.14013,192.182626 C1311.18271,182.480111 1309.75414,171.799173 1311.38198,161.458712 C1312.95534,151.459444 1317.3801,142.492359 1324.10721,134.839873 L1310,128.284797 C1316.62317,120.548447 1324.48854,114.19694 1334.10289,110.276081 C1343.95594,106.257737 1355.04186,104.982562 1365.52066,107.166631 L1364.28635,92 C1385.02175,95.0004971 1404.0863,108.238954 1410.78688,128.032486" id="Fill-1"></path>
+                        </g>
+                </svg>
+                <div>
+                    <h1><b>Carbide</b> Alpha</h1>
+                </div>
+            </div>
+            <p>
+                
+                Carbide is <b>a new kind of programming environment</b> which, as is obligatory in this day and age:
+                <ul>
+                    <li>Requires <b>no installation</b> or <b>setup</b></li>
+                    <li>Supports <b>Javascript</b>/<b>ES2015</b></li>
+                    <li>Imports modules <b>automatically</b>  from <b>NPM</b> or <b>GitHub</b></li>
+                    <li><b>Saves</b> and <b>loads</b> directly to and from <b>Github Gists</b></li>
+
+                    <!-- <li>Is built for Notebook Programming</li> -->
+                    <!-- <li>Can run your code in an <b>external window</b></li>     -->
+                </ul>
+                But wait, there's more...
+            </p>            
+        </div>
+        <div class='demo'>
+            <img src="static/img/chrome.png"/>
+            <img src="static/img/tree.png"/>
+        </div>
+    </div>
+
+
+    <div id='crazy'>
+        <div class='demo'>
+            <img src="static/img/chrome.png"/>
+            <img src="static/img/noshadow-fahrenheit.gif"/>
+        </div>
+        <div>
+            <p>
+                <h2>More Crazily...</h2>
+                <ul>
+
+                    <li>Comments live in a <b>Rich Text</b> sidebar <b>#LiterateProgramming</b></li>
+
+                    <li>Carbide shows results <b>in-between</b> the lines of your code— letting you <b>see data in context</b></li>
+
+                    <li>The result of any expression can be <b>logged, visualized</b>, and <b>directly manipulated</b> with powerful (and shiny) <b>widgets</b></li>
+
+                    <li>Carbide doesn't distinguish between <b>input</b> and <b>output</b>, using generalized <b>machine learning</b> techniques to run programs <b>backwards</b></li>
+                    
+                </ul>
+            </p>
+
+        </div>
+    </div>
+
+    <div id='outro'>
+            Carbide is pretty weird (not just because it's pretty buggy), so we highly recommend at least skimming the <a href='#quick'>Quick Start Guide</a>. <small>If you're truly an unstoppable force, you can also <a href='//alpha.trycarbide.com/@bijection'>jump straight to some examples</a>.</small> 
+    </div>
+
+</div>
+
+
+<div id='quick'>
+    <div id='tv-wrap'>
+        <div id='tv'>
+            <!-- <img id='tv-img' src="static/img/center.gif"/> -->
+        </div>
+    </div>
+    <div id='quick-content'>
+        <div id='quick-pointer'></div>
+        <h1>Quick Start</h1>
+
+        <h2>Running Code</h2>
+        <p image='static/mp4/alert-hello-world.mp4'>Type some code in the box and press the run button the bottom right.</p>
+        <p image='static/mp4/external-window-run.mp4'>You can optionally run your code in a sepparate window, if you want ot do thing like modifying the DOM.</p>
+
+        <h2>Attaching Probes</h2>
+        <p>When you run code in Carbide, some expressions get underlined automatically — these things are called "probes".</p>
+        <p>When an underlined expression is evaluated, its value is shown right below the line.</p>
+        <p image='static/mp4/attaching-probes.mp4'>You can attach extra probes to any expression by selecting it and pressing “Cmd-I” (think of it as I for Inspect).</p>
+        <p>Rather than littering your code with print statements and breaking up nested expressions, or painstakingly stepping through with a traditional debugger, it’s easy to see an overview of all the values as they flow through a program. </p>
+        
+        <h2>Visualization Widgets</h2>
+        <p>When you want to see more than the basic summary probes show you, you can click any probe to open a "widget" in a box on the right.</p>
+        <p image='static/mp4/lots-of-widgets.mp4'>On the top of a widget is a tab bar which lets you switch between different representations of a piece of data. A string like “orange” can be visualized as a text box, or a color picker.</p>
+        <p>Beyond simply looking at a piece of data, visualization widgets can also incorporate knowledge of your code's abstract syntax tree. This allows us to visualize array[0] as a selector into the array, or “house” == “horse” as an interactive string comparison, rather than the uninformative “false”. You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.</p>
+
+        <h2>Manipulation Widgets</h2>
+        <p>Visualization and Manipulation are two sides of the same coin, and in Carbide both are accomplished through the same means. </p>
+        <p>For example, a slider attached to a number gives a nice interface for . </p>
+        
+        <h2>Multiple Cells</h2>
+        Code in carbide lives in boxes called cells. In the examples before this we only had one cell, but when you code gets bigger, or when you want to try out different approaches to a problem at the same time, you can create extra cells by clicking any of the ‘+ insert cell’ buttons. To share variables between cells, use the javascript import/export syntax. Check out the babel ES2105 guide for a full treatment of the syntax.
+
+        <h2>Saving and Sharing</h2>
+        Carbide notebooks are all public (<a href="/">can I has private notebooks</a>), and they get stored on github as gists. 
+        If you're logged in when you click Save or press command S the gist will be under your github account. If you aren't, it will be on carbide-public. Notebook urls stay the same as long as you don't delete the underlying gist, so you can copy and paste links from the address bar to share your creations.
+    </div>
+</div>
+
+<div id="container">
+    <div id="table-of-contents-wrap">
+        <div id="table-of-contents"></div>
+    </div>
+
+    <div id="content-wrap">
+        <div id="content">
+            <h1>Why Carbide?</h1>
+            <h2>Who is Notebook Programming?</h2>
+            Notebooks, as opposed to say typewriters, let you sketch your ideas anywhere on the page, however you want. In a noteboook programming environment, you write and run code out of order, and often investigate multiple avenues of attack in parallel.
+
+
+            <h1 id='menagerie'>Widget Menagerie</h1>
+
+
+            <p>
+            </p>
+
+            <h2>Numbers</h2>
+            <div id='just-call-it-a-zoo'>
+                <div class='animal'><div class='animal-name'>slider</div><img src="static/img/slide-loop.gif"/></div>
+
+                <div class='animal'><div class='animal-name'>integer</div><img src="static/img/integer-loop.gif"/></div>
+
+                <div class='animal'><div class='animal-name'>scrubber</div><img src="static/img/scrub-loop.gif"/></div>
+
+            </div>
+
+
+            <h2>Strings</h2>
+            <div id='just-call-it-a-zoo'>
+                
+
+                <div class='animal'><div class='animal-name'>string</div><img src="static/img/string.png"/></div>
+                <div class='animal'><div class='animal-name'>string_diff</div><img src="static/img/string-diff.gif"/></div>
+
+
+                <div class='animal'><div class='animal-name'>color</div><img src="static/img/color-loop.gif"/></div>
+
+                <div class='animal'><div class='animal-name'>buffer</div><img src="static/img/buffer.png"/></div>
+
+            </div>
+
+
+            <h2>Visualizing Data</h2>
+
+            <div id='just-call-it-a-zoo'>
+                <div class='animal'><div class='animal-name'>chart</div><img src="static/img/chart-loop.gif"/></div>
+
+                <div class='animal'><div class='animal-name'>surface</div><img src="static/img/surface.gif"/></div>
+
+                <div class='animal'><div class='animal-name'>ndarray</div><img src="static/img/ndimage.png"/></div>
+
+
+                <div class='animal'><div class='animal-name'>matrix</div><img src="static/img/matrix.png"/></div>
+
+            </div>
+
+            <h2>Objects</h2>
+
+            <div id='just-call-it-a-zoo'>
+                <div class='animal'><div class='animal-name'>regexp</div><img src="static/img/randexp-loop.gif"/></div>
+
+                <div class='animal'><div class='animal-name'>date</div><img src="static/img/date-loop.gif"/></div>
+
+
+                <div class='animal'><div class='animal-name'>json</div><img src="static/img/json.png"/></div>
+                <div class='animal'><div class='animal-name'>json_diff</div><img src="static/img/json_diff.png"/></div>
+            </div>
+
+            <h2>Basic Widgets</h2>
+            <div id='just-call-it-a-zoo'>
+                
+
+                <div class='animal'><div class='animal-name'>date</div><img src="static/img/date-loop.gif"/></div>
+                <div class='animal'><div class='animal-name'>html</div><img src="static/img/html.png"/></div>
+                
+                
+                
+                <div class='animal'><div class='animal-name'>map</div><img src="static/img/map.png"/></div>
+                
+                <div class='animal'><div class='animal-name'>object</div><img src="static/img/object.png"/></div>
+                <div class='animal'><div class='animal-name'>react</div><img src="static/img/spinner.png"/></div>
+                <div class='animal'><div class='animal-name'>regex</div><img src="static/img/regex.png"/></div>
+                
+                <div class='animal'><div class='animal-name'>selector</div><img src="static/img/selector-loop.gif"/></div>
+                
+                <div class='animal'><div class='animal-name'>tree</div><img src="static/img/tree.png"/></div>            
+            </div>
+
+            <h2>Miscellaneous</h2>
+
+            <div id='just-call-it-a-zoo'>
+
+                <div class='animal'><div class='animal-name'>base</div><img src="static/img/base.png"/></div>
+                <div class='animal'><div class='animal-name'>buffer</div><img src="static/img/buffer.png"/></div>
+                <div class='animal'><div class='animal-name'>chart</div><img src="static/img/chart.png"/></div>
+                <div class='animal'><div class='animal-name'>color</div><img src="static/img/color.png"/></div>
+                <div class='animal'><div class='animal-name'>date</div><img src="static/img/date.png"/></div>
+                <div class='animal'><div class='animal-name'>html</div><img src="static/img/html.png"/></div>
+                <div class='animal'><div class='animal-name'>insert</div><img src="static/img/insert.png"/></div>
+                <div class='animal'><div class='animal-name'>json</div><img src="static/img/json.png"/></div>
+                <div class='animal'><div class='animal-name'>json_diff</div><img src="static/img/json_diff.png"/></div>
+                <div class='animal'><div class='animal-name'>kernel</div><img src="static/img/kernel.png"/></div>
+                <div class='animal'><div class='animal-name'>lit</div><img src="static/img/lit.png"/></div>
+                <div class='animal'><div class='animal-name'>map</div><img src="static/img/map.png"/></div>
+                <div class='animal'><div class='animal-name'>matrix</div><img src="static/img/matrix.png"/></div>
+                <div class='animal'><div class='animal-name'>object</div><img src="static/img/object.png"/></div>
+                <div class='animal'><div class='animal-name'>react</div><img src="static/img/react.png"/></div>
+                <div class='animal'><div class='animal-name'>regex</div><img src="static/img/regex.png"/></div>
+                <div class='animal'><div class='animal-name'>rename</div><img src="static/img/rename.png"/></div>
+                <div class='animal'><div class='animal-name'>selector</div><img src="static/img/selector.png"/></div>
+                <div class='animal'><div class='animal-name'>slider</div><img src="static/img/slider.png"/></div>
+                <div class='animal'><div class='animal-name'>string</div><img src="static/img/string.png"/></div>
+                <div class='animal'><div class='animal-name'>string_diff</div><img src="static/img/string_diff.png"/></div>
+                <div class='animal'><div class='animal-name'>tree</div><img src="static/img/tree.png"/></div>            
+            </div>
+
+            <h2>Making Your Own Widgets</h2>
+            Carbide widgets are just react components (<a href="/">what's a react component</a>) with a static class property <code>title</code> and a static member function called match, with the signature <code>match(value, ast)</code>. Whenever you open a widget on some expression, carbide runs the expressions value and ast through all of the installed widgets' match functions to figure out which widgets it should show in the tabs. 
+
+            If you have a react component with a static title and match function, you can add it to your notebook like this: 
+            <pre>
+    import React from  'react'
+    class YOLOWidget extends React.Component {
+        static title = '#YOLO'
+        static match(value, ast){
+            return value === '#YOLO'
+        }
+        render(){
+            return &lt;a href="https://en.wikipedia.org/wiki/YOLO_(motto)"&gt;
+                https://en.wikipedia.org/wiki/YOLO_(motto)
+            &lt;/a&gt;
+        }
+    }
+
+    doc.kernel.widgets.push(YOLOWidget)
+            </pre>
+
+            <h1>Architecture and Technology (how things work)</h1>
+            
+            <h2>Babel Transformation / Top Level Await</h2>
+            To make everyone's life easier, Carbide cheats a bit and allows you to use the await keyword in the top level, as if you were writing an async function. The way this works under the hood is basically by detecting top level awaits, and wrapping your entire cell in an async function if it finds them. We've broken the babel transform that does this into <a href='https://github.com/eponymous-labs/babel-plugin-top-level-await'>its own repo</a>.
+            
+            <h2>How Backprop Works</h2>
+            When you drag a slider or type in a text box or adjust a color picker on an expression that isn't a literal, Carbide tries to modify other literals in your code to accomplish that change. To make this behavior predicatable and give you some degree of control, Carbdide only modifies literals in the same cell that have open widgets attached to them. Carbide solves this optimization problem differently depending on the type of goal value. Currently, Carbide uses gradient descent for numerical values, string mapping for strings, inverted function knowledge for finctions with known inverses (<a href='/'>which you can declare</a>), and preperty mapping to compose these preimitives when you're modifying more complex objects.
+
+            <h2>Prior Art</h2>
+            <img src="static/img/fancy_logo.svg" style="width:60px;float:left;vertical-align: top;margin-right:10px;">arbide is heavily inspired by Previous Notebook programming environments, especially Mathematica. Our comment system is a knod to literate programming as pioneered by Knuth. Interlinear annotation and direct manuipulation have their roots in Sutherlands Sketchpad and have been more recently distrubted in the works of Bret Victor. 
+
+            <h2>JSPM / Self Hosting</h2>
+            Carbide uses SystemJS for all of its external dependencies. Intererstingly enough, Carbide gets built by the same code that buids code you run in carbide. Carbide is essetially a ten thousand line carbide notebook, running in Carbide.
+
+            <h2>CodeMirror / Matte</h2>
+            Code rendering is carbide is handle by the fantastic <a href='https://codemirror.net/'>CodeMirror by Marijn</a>, with a few carbide specific hacks to the Codemirror internals. Specifically, Carbide modidifes the codemirror syntax highlighting engine to keep checkpoints that allow it only render the code in the on-screen cells. All of the other UI is drawn inrelation to the rendered code, and lazily rendered in a similar way. 
+
+            <h2>Nondeterministic Layout Engine</h2>
+            To Enable Carbidiculous behaviors, like treating text contours as elements that can block floating widgets, Carbide's layout engine uses a form of <a href='http://community.schemewiki.org/?amb'>McCarthy's AMB operator</a>. Essentially, because Carbide need to calculate layout greedily, layouts sometimes have to exist in a superposition of two states, that can only be resolved after further layout calculations. This is sort of like <a href='http://c2.com/cgi/wiki?QuantumBogoSort'>quantum bogo sort</a> for css.
+
+            <h1>Advanced Topics</h1>
+            <h2>__unload handlers</h2>
+            To keep everything working smoothly when you manipulate complex projects, carbide exposes a API that allows you to specify your code's behavior when you reload it or interact with its attached widgets. To force your code to reloa when any of its dependencies change, export a variable <code>__forceReload</code> with a truthy value.
+            <pre>export const __forceReload = true</pre>
+            To clean up stateful code in preparation for a reload, export a function called <code>__unload</code> that optionally takes the module compiled from the newer code.
+            <pre>export function __unload(new_module){
+    cancelAllEventListeners()
+    unMountMyDOMElements()
+    // etc
+}</pre>
+
+            <h2>creating new kernels</h2>
+            Although Carbide is Javascript-first, parsing, compiling, and running code are all implemented as external modules. This means that it's possible to define a javascript madule that replaces the carbide kernel in order to run code in a different language. 
+
+            Here's an example of a minimal kernel: 
+<pre>
+    export async function parse(code){
+        return; // the simplest parse.
+        // In a better kernel we'd return some kind of ast.
+    }
+
+    export async function probe(start, end, probe_id, ast){
+        return {probe_id: probe_id}
+    }
+
+    export async function evaluate(ast, probe_logger){
+        if(ast.probe_id) probe_logger(probe_id, 4);
+        return 4;
+    }
+</pre>
+            In fact, it's so easy to create kernels that we couldn't really help our selves...
+
+
+            <h1>Roadmap</h1>
+            <h2>Preview: Watlab Kernel</h2>
+            Watlab is compile-to-javascript language inspired by Matlab. Almost all of the syteax is the same as ES2015, with addition of a postfix function application operator, matrix literals, and standard matrix operators (e.g. <code>A\b</code> to solve a system of linear equations).    
+
+            <h2>Preview: Python Kernel</h2>
+            A tiny kernel that communcates with a local python REPL. Pros: filesystem access, cool python libraries. Cons: requires an <code>npm install; npm start</code> command.
+            <pre>[images]</pre>
+            
+            <h2>Preview: MIT Scheme Kernel</h2>
+            A tiny kernel that communcates with a local MIT Scheme REPL. Pros: filesystem access, arcane wizardry. Cons: requires an <code>npm install; npm start</code> command, arcane wizardry.
+            <pre>[images]</pre>
+            
+            <h2>Preview: Time Travelling</h2>
+            One of the features that didn't quite make it into the alpha release is a Bret Victor Style program execution scrubber that lets you get a more intuitive sense of stuff like for loops: 
+            <pre>[images]</pre>
+            Stay Tuned.
+
+            <h1>Help / Contact</h1>
+
+            Send us an email at your favorite address:
+            
+            help@tryarbide.com
+            bugs@tryarbide.com
+            hello@trycarbide.com
+
+        </div>
+    </div>  
+</div>
+
+<!-- <div class="prior-art">
+
+asdfjoijsadf
+</div>
+ -->
+<script type="text/javascript" src='static/main.js'></script>
+</body>
+</html>

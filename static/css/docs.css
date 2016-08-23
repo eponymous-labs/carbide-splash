@@ -1,0 +1,128 @@
+#container {
+    display:flex;
+}
+
+#content {
+    font-size:20px;
+    box-sizing:border-box;
+    border-top:1px solid #f0f3ff;
+    padding:60px;
+}
+
+#content h1:first-of-type {
+    margin-top:0;
+}
+
+#content-wrap {
+    flex:1;
+}
+
+#just-call-it-a-zoo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#table-of-contents {
+    transition:.5s;
+    opacity:.2;
+    cursor:pointer;
+    box-sizing:border-box;
+    max-height:100%;
+    overflow:hidden;
+}
+
+#table-of-contents ul {
+    list-style-type:none;
+    display:none;
+    margin:0;
+    padding:0;
+}
+
+#table-of-contents ul.current {
+    display:initial;
+}
+
+#table-of-contents,
+#table-of-contents-wrap {
+    width:300px;
+}
+
+#table-of-contents-wrap {
+    position:relative;
+    transition:.5s;
+    color:#a1aec8;
+    box-sizing:border-box;
+}
+
+#table-of-contents.floating {
+    opacity:1;
+    position:fixed;
+    top:0;
+}
+
+.animal {
+    // max-width: 100%;
+    width: 400px;
+    // max-height: 400px;
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    // box-shadow: 0 11px 48px rgba(0, 0, 0, 0.52);
+    background: #fff;
+    margin: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.animal img {
+    max-width: 100%;
+}
+
+.subtopic {
+    opacity:0.8;
+    padding:7px 30px 7px 40px;
+}
+
+.subtopic.current {
+    background:rgb(213,221,255);
+    color:#21247d;
+}
+
+.topic {
+    color:#2d3b75;
+    font-weight:600;
+    padding:20px 30px;
+}
+
+.topic.current {
+    background:rgb(213,221,255);
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+@media (max-width: 1100px){
+
+	#content h1 {
+        margin: 20px -60px;
+        padding: 27px 60px;
+        background: #ff7d7d;
+        color: #fff;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) inset;
+        margin-top: 60px;
+    }
+
+	#table-of-contents-wrap {
+	    display:none;
+	}
+
+	pre {
+		font-size: initial;
+	}
+
+}

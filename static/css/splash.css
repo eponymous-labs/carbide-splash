@@ -1,0 +1,131 @@
+#crazy {
+    padding: 60px 160px;
+    background: #d64f4f;
+    transform: rotate(3deg);
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -100px;
+    margin-top: -30px;
+    align-items: flex-start;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+#crazy .demo {
+    transform: rotate(-4deg);
+    display: inline-block;
+    margin-left: -60px;
+}
+
+#crazy h2 {
+	color: #fff;
+}
+
+#description,
+.spacer {
+    flex:1;
+}
+
+#header {
+    display:flex;
+    height:40px;
+    align-items:center;
+    background:#e4eaff;
+    padding:2px 20px;
+    display: none;
+}
+
+#header a {
+    color:#9ba8c1;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+#intro {
+	display: flex;
+	justify-content: space-between;
+	padding: 60px;
+	align-items: flex-start;
+}
+
+#intro .demo {
+	margin-right: -80px;
+	margin-bottom: -60px;
+}
+
+#logo {
+    height: 65px;
+    margin-right: 20px;
+}
+
+#logo g {
+    fill: rgba(255, 255, 255, 0.63);
+}
+
+#outro {
+	padding: 60px;
+}
+
+#splash {
+    font-size:25px;
+    box-sizing:border-box;
+    margin-bottom:40px;
+    border-bottom:1px solid #d7ddec;
+    flex:1;
+    background: #4b608e;
+    color: #fff;
+    overflow: hidden;
+}
+
+#splash a {
+    color:#ffb4b4;
+    text-decoration:none;
+}
+
+#title {
+	display: flex;
+	align-items: center;
+}
+
+#title h1 {
+    margin:0;
+    font-weight: 100;
+    color: #fff;
+}
+
+.demo {
+    width:1000px;
+    box-shadow:0 21px 45px rgba(0,0,0,0.35);
+    border-radius:3px;
+    overflow:hidden;
+    margin:0 40px;
+    z-index:1;
+    position:relative;
+}
+
+.demo img {
+    display:block;
+    max-width:100%;
+    max-height:initial;
+}
+
+@media (max-width: 1300px) {
+    #intro .demo {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 1180px) {
+    #crazy .demo {
+        // display: none;
+        width: 500px;
+        margin: 0 !important;
+        max-width:100%;
+    }
+    #intro, #crazy {
+        justify-content: space-around;
+        flex-wrap: wrap-reverse;
+    }
+    #intro .demo {
+        display: none;
+    }
+}
