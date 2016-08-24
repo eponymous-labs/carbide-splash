@@ -89,18 +89,18 @@
 
 
 <div id='quick'>
-    <div id='tv-wrap'>
-        <div id="tv">
-            <div id='tv-scroller'>
-            </div>        
-        </div>
-    </div>
+    
     <div id='quick-content'>
         <div id='quick-pointer'></div>
+        
+
+        <div class="quickblock">
+        
+        <video class="jetengine" autoplay loop src='static/mp4/two-plus-two.mp4'></video>
+
+        <div class="ineedtopee">
         <h1>Quick Start</h1>
-
         <h2>Running Code</h2>
-
         <p image='static/mp4/two-plus-two.mp4'>
             Running code in Carbide is as simple as hitting the <b>"Run"</b> button located on the bottom right of any cell</b>. You can also quickly run the current cell with (<b>Cmd-Enter</b>). 
         </p>
@@ -117,8 +117,14 @@
         <p>
             We haven't launched support for other programming languages yet (rest assured it's on <a href="#roadmap">our roadmap</a>). 
         </p>        
+        </div>
+        </div>
 
+        <div class="quickblock">
+        <video class="jetengine" autoplay loop src='static/mp4/attaching-probes.mp4'></video>
+        <div class="ineedtopee">
         <h2>Attaching Probes</h2>
+        
         <p  image='static/mp4/attaching-probes.mp4'>
             In Carbide, you see the results of running your program in "probes" which are displayed <b>in between the lines</b> of your code. 
         </p>
@@ -133,8 +139,12 @@
         <p>
             As a convenience, the outermost expression on any line is automatically logged, and a widget is shown for the last expression of the cell. 
         </p>
-        
-        
+        </div>
+        </div>
+
+        <div class="quickblock">
+        <video class="jetengine" autoplay loop src='static/mp4/lots-of-widgets.mp4'></video>
+        <div class="ineedtopee">
         <h2>Visualization Widgets</h2>
         
         <p image='static/mp4/lots-of-widgets.mp4'>When you want to see more than the basic summary probes show you, you can <b>click any probe</b> to open a "widget", which appears to the right of your code. </p>
@@ -149,9 +159,15 @@
         <p>
          You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.
          </p>
+        </div>
+        </div>
 
+        <div class="quickblock">
+        <video class="jetengine" autoplay loop src='static/mp4/murrica.mp4'></video>
+        <div class="ineedtopee">
         <h2>Manipulation Widgets</h2>
-        <p image='static/mp4/murrica.mp4'>
+        
+        
         
         The <b>exact same widgets</b> which were used for visualizing data can also be used for <b>manipulating data</b>. This is an idea which really lies at the heart of what Carbide is— peeling away the one-way mirror found in most data visualization tools which forces you to look and not touch. 
 
@@ -164,9 +180,15 @@
         <p>
             We start to get into trouble when the "42" isn't actually found in the code, and values are computed rather than literal. To figure this out we have to essentially <b>run the program backwards</b>— fixing the outputs, and solving for the inputs. To do this, we use a technique from machine learning, called backpropagation. If you're interested, there's a <a href="#backprop">longer technical explanation</a> of what it is and how it works below.
         </p>
-        
+        </div>
+        </div>
+
+        <div class="quickblock">
+        <video class="jetengine" autoplay loop src='static/mp4/inserting-cells.mp4'></video>
+        <div class="ineedtopee">
         <h2>Multiple Cells</h2>
-        <p image='static/mp4/inserting-cells.mp4'>
+        
+        
         Carbide is a <b>notebook programming environment</b>, which means that the code is stuck into little boxes called cells. Each cell is a little playground where you can build stuff, aided by all the fancy tools for seeing, poking, and prodding. 
         </p>
         <p>
@@ -189,10 +211,14 @@ export default 420 </code></pre>
         <pre><code class="language-javascript">// cell1.js
 import data from './cell0.js'
 data + 2 </code></pre>
+        </div>
+        </div>
 
+        <div class="quickblock">
+        
+        <video class="jetengine" autoplay loop src='static/mp4/saving-gist.mp4'></video>
+        <div class="ineedtopee">
         <h2>Saving and Sharing</h2>
-        <p image='static/mp4/saving-gist.mp4'>
-
         Currently, <b>all Carbide notebooks</b> are represented as <b>public Github Gists</b>. 
 
         </p>
@@ -205,6 +231,8 @@ data + 2 </code></pre>
         <p>
             Notebooks are represented in a nice human-readable plain text format: each cell corresponds to a different file, with a markdown header file containing all the metadata as a comment. 
         </p>
+        </div>
+        </div>
     </div>
 </div>
 

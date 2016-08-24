@@ -1,3 +1,17 @@
+.quickblock {
+    display: flex;
+    align-items: center;
+}
+
+video.jetengine {
+    width: 45%;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.35);
+}
+
+.ineedtopee {
+    margin-left: 60px;
+}
+
 #getting-started {
     background:#eff2ff;
     border:1px solid #f3f8ff;

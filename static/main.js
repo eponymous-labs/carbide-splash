@@ -97,118 +97,118 @@ var tv = document.getElementById('tv')
 var tv_img = document.getElementById('tv-img')
 var tv_markers = [].slice.call(document.querySelectorAll('[image]'))
 // var tv_pointer = document.getElementById('quick-pointer')
-var tv_scroller = document.getElementById('tv-scroller')
-var quick_content = document.getElementById('quick-content')
+// var tv_scroller = document.getElementById('tv-scroller')
+// var quick_content = document.getElementById('quick-content')
 
-var active_marker, active_image
+// var active_marker, active_image
 
-tv_markers.forEach(function(tv_marker) {
-	var img = document.createElement('video')
-	img.src = tv_marker.getAttribute('image')
-	img.autoplay = true
-	img.loop = true
-	// img.style.display = 'none'
-	// img.style.opacity = .5
-	img.className = 'unfocused'
-	tv_marker.img = img
-	tv_scroller.appendChild(img)
+// tv_markers.forEach(function(tv_marker) {
+// 	var img = document.createElement('video')
+// 	img.src = tv_marker.getAttribute('image')
+// 	img.autoplay = true
+// 	img.loop = true
+// 	// img.style.display = 'none'
+// 	// img.style.opacity = .5
+// 	img.className = 'unfocused'
+// 	tv_marker.img = img
+// 	tv_scroller.appendChild(img)
 
-	var inline_img = document.createElement('video')
-	inline_img.src = tv_marker.getAttribute('image')
-	inline_img.className = 'inline'
-	inline_img.autoplay = true
-	inline_img.loop = true
-	tv_marker.parentNode.insertBefore(inline_img, tv_marker.nextSibling)
+// 	var inline_img = document.createElement('video')
+// 	inline_img.src = tv_marker.getAttribute('image')
+// 	inline_img.className = 'inline'
+// 	inline_img.autoplay = true
+// 	inline_img.loop = true
+// 	tv_marker.parentNode.insertBefore(inline_img, tv_marker.nextSibling)
 
-})
+// })
 
-function kevin_scroll(e) {
+// function kevin_scroll(e) {
 
-	if(active_marker){
-		active_marker.img.className= 'unfocused';
-		// active_marker.img.style.display = 'none'
-		// active_marker.img.style.opacity = .5
-	}
+// 	if(active_marker){
+// 		active_marker.img.className= 'unfocused';
+// 		// active_marker.img.style.display = 'none'
+// 		// active_marker.img.style.opacity = .5
+// 	}
 
-	var get_top = function(tv_marker){return tv_marker.getBoundingClientRect().top}
+// 	var get_top = function(tv_marker){return tv_marker.getBoundingClientRect().top}
 
-	var active_marker_index = nearest(tv_markers, get_top, innerHeight/2)
-	active_marker = tv_markers[active_marker_index]
+// 	var active_marker_index = nearest(tv_markers, get_top, innerHeight/2)
+// 	active_marker = tv_markers[active_marker_index]
 
-	// active_marker.img.style.opacity = 1
-	active_marker.img.className = 'focused'
+// 	// active_marker.img.style.opacity = 1
+// 	active_marker.img.className = 'focused'
 
-	var next_marker = tv_markers[active_marker_index+1] || active_marker
-	var prev_marker = tv_markers[active_marker_index-1] || active_marker
+// 	var next_marker = tv_markers[active_marker_index+1] || active_marker
+// 	var prev_marker = tv_markers[active_marker_index-1] || active_marker
 
-	// active_marker.className = 'active'
-	// active_marker.img.style.display = 'block'
+// 	// active_marker.className = 'active'
+// 	// active_marker.img.style.display = 'block'
 
-	var wrap_rect = tv_wrap.getBoundingClientRect()
-	var active_rect = active_marker.img.getBoundingClientRect()
-	var active_marker_rect = active_marker.getBoundingClientRect()
+// 	var wrap_rect = tv_wrap.getBoundingClientRect()
+// 	var active_rect = active_marker.img.getBoundingClientRect()
+// 	var active_marker_rect = active_marker.getBoundingClientRect()
 	
-	var ideal_top_offset = innerHeight/2 - active_rect.height/2
+// 	var ideal_top_offset = innerHeight/2 - active_rect.height/2
 	
-	var tv_bottom = active_rect.height + ideal_top_offset
+// 	var tv_bottom = active_rect.height + ideal_top_offset
 
-	// tv_pointer.style.top = active_marker.getBoundingClientRect().top - quick_content.getBoundingClientRect().top + 10 + 'px'
+// 	// tv_pointer.style.top = active_marker.getBoundingClientRect().top - quick_content.getBoundingClientRect().top + 10 + 'px'
 
-	if(wrap_rect.top <= ideal_top_offset && wrap_rect.bottom > tv_bottom){
-		tv.className = 'floating'
-		tv.parentElement.className = 'floating'
-		console.log(active_rect.top< innerHeight/2)
+// 	if(wrap_rect.top <= ideal_top_offset && wrap_rect.bottom > tv_bottom){
+// 		tv.className = 'floating'
+// 		tv.parentElement.className = 'floating'
+// 		console.log(active_rect.top< innerHeight/2)
 
-		function tween_top(cur, next) {
-			var cur_marker_rect = cur.getBoundingClientRect()
-			var next_marker_rect = next.getBoundingClientRect()
-			var cur_rect = cur.img.getBoundingClientRect()
-			var next_rect = next.img.getBoundingClientRect()
+// 		function tween_top(cur, next) {
+// 			var cur_marker_rect = cur.getBoundingClientRect()
+// 			var next_marker_rect = next.getBoundingClientRect()
+// 			var cur_rect = cur.img.getBoundingClientRect()
+// 			var next_rect = next.img.getBoundingClientRect()
 
-			var tv_scroller_top = tv_scroller.getBoundingClientRect().top
+// 			var tv_scroller_top = tv_scroller.getBoundingClientRect().top
 
-			var r = (innerHeight/2 - cur_marker_rect.top)/
-			(next_marker_rect.top - cur_marker_rect.top)
+// 			var r = (innerHeight/2 - cur_marker_rect.top)/
+// 			(next_marker_rect.top - cur_marker_rect.top)
 
-			var cur_top_scroll = tv_scroller_top -
-			cur_rect.top + innerHeight/2 - cur_rect.height/2 + 60
+// 			var cur_top_scroll = tv_scroller_top -
+// 			cur_rect.top + innerHeight/2 - cur_rect.height/2 + 60
 
-			var next_top_scroll = tv_scroller_top -
-			next_rect.top + innerHeight/2 - next_rect.height/2 + 60
-			console.log(r)
+// 			var next_top_scroll = tv_scroller_top -
+// 			next_rect.top + innerHeight/2 - next_rect.height/2 + 60
+// 			console.log(r)
 
-			if(cur === next) return cur_top_scroll;
+// 			if(cur === next) return cur_top_scroll;
 
-			return cur_top_scroll + r*(next_top_scroll - cur_top_scroll)
-		}
+// 			return cur_top_scroll + r*(next_top_scroll - cur_top_scroll)
+// 		}
 
 
-		if(active_marker_rect.top < innerHeight/2){
+// 		if(active_marker_rect.top < innerHeight/2){
 
-			tv_scroller.style.top = tween_top(active_marker, next_marker) + 'px'
+// 			tv_scroller.style.top = tween_top(active_marker, next_marker) + 'px'
 
-		} else {
+// 		} else {
 
-			tv_scroller.style.top = tween_top(prev_marker, active_marker) + 'px'
+// 			tv_scroller.style.top = tween_top(prev_marker, active_marker) + 'px'
 
-		}
+// 		}
 
-	} else if (wrap_rect.bottom <= tv_bottom){
-		tv.className = 'bottom'
-		tv.parentElement.className = 'bottom'
+// 	} else if (wrap_rect.bottom <= tv_bottom){
+// 		tv.className = 'bottom'
+// 		tv.parentElement.className = 'bottom'
 
-		diff = tv_wrap.getBoundingClientRect().height 
-			- tv_scroller.getBoundingClientRect().height + 60 + 60
-		tv_scroller.style.top = diff + 'px'
-	} else {
-		tv.className = ''
-		tv.parentElement.className = ''
-		tv_scroller.style.top = 'initial'
-	}
-}
+// 		diff = tv_wrap.getBoundingClientRect().height 
+// 			- tv_scroller.getBoundingClientRect().height + 60 + 60
+// 		tv_scroller.style.top = diff + 'px'
+// 	} else {
+// 		tv.className = ''
+// 		tv.parentElement.className = ''
+// 		tv_scroller.style.top = 'initial'
+// 	}
+// }
 
-document.addEventListener('scroll', kevin_scroll)
-setTimeout(kevin_scroll, 200)
+// document.addEventListener('scroll', kevin_scroll)
+// setTimeout(kevin_scroll, 200)
 
 var mag = document.querySelector('.mag')
 var magWrap = document.querySelector('.mag-wrap')
