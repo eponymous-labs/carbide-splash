@@ -81,7 +81,7 @@
     </div>
 
     <div id='outro'>
-            Carbide is pretty weird (not just because it's still fairly buggy), so we highly recommend at least skimming the <a href='#quick'>Quick Start Guide</a>. <small>But if you're <i>truly</i> an unstoppable force, you can also <a href='//alpha.trycarbide.com/@bijection'>jump straight to some examples</a>.</small> 
+            Carbide is pretty weird <small>(not just because it's still fairly buggy)</small>, so we highly recommend at least skimming the <a href='#quick'>Quick Start Guide</a>. <small>But if you're <i>truly</i> an unstoppable force, you can also <a href='//alpha.trycarbide.com/@bijection'>jump straight to some examples</a>.</small> 
     </div>
 
 </div>
@@ -152,21 +152,17 @@
         <h2>Manipulation Widgets</h2>
         <p image='static/mp4/murrica.mp4'>
         
-        The <b>exact same widgets</b> which were used for visualizing data can also be used for <b>manipulating data</b>. This is an idea which really lies at the heart of what Carbide is— <b>peeling away the one-way mirror</b> found in most data visualization tools which forces you to look and not touch. 
+        The <b>exact same widgets</b> which were used for visualizing data can also be used for <b>manipulating data</b>. This is an idea which really lies at the heart of what Carbide is— peeling away the one-way mirror found in most data visualization tools which forces you to look and not touch. 
 
         </p>
 
         <p>
-        For example, we could represent the number "42" as a slider with the bounds set between 0 and 100. As a visualization, this gives me some spatial sense of how large this number is. 
-
+        For example, we could represent the number "42" as a slider with the bounds set between 0 and 100. As a visualization, this gives me some spatial sense of how large this number is. When I drag the slider, it would make sense for the part of the code which said "42" to be replaced with the new value. 
         </p>
 
 
         <p>
-
-
-
-        Visualization and Manipulation are two sides of the same coin, and in Carbide both are accomplished through the same means. 
+            We start to get into trouble when the "42" isn't actually found in the code, and values are computed rather than literal. 
 
         </p>
         <p>For example, a slider attached to a number gives a nice interface for . </p>
@@ -234,7 +230,7 @@
             </div>
 
 
-            <h2>Visualizing Data</h2>
+            <h2>Data</h2>
 
             <div id='just-call-it-a-zoo'>
                 <div class='animal'><div class='animal-name'>chart</div><img src="static/img/chart-loop.gif"/></div>
@@ -277,14 +273,12 @@
                 
                 <div class='animal'><div class='animal-name'>selector</div><img src="static/img/selector-loop.gif"/></div>
                 
-                <div class='animal'><div class='animal-name'>tree</div><img src="static/img/tree.png"/></div>            
             </div>
 
             <h2>Miscellaneous</h2>
 
             <div id='just-call-it-a-zoo'>
 
-                <div class='animal'><div class='animal-name'>base</div><img src="static/img/base.png"/></div>
                 <div class='animal'><div class='animal-name'>buffer</div><img src="static/img/buffer.png"/></div>
                 <div class='animal'><div class='animal-name'>chart</div><img src="static/img/chart.png"/></div>
                 <div class='animal'><div class='animal-name'>color</div><img src="static/img/color.png"/></div>
@@ -357,28 +351,6 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             </p>
 
 
-            
-            <h2  style="clear:both">Backpropagation</h2>
-
-            <img src="/static/img/slide-loop.gif" style="width: 40%; float: right">
-            <p>
-                One of the central ideas behind Carbide is to represent "inputs" and "outputs" in the same way, through widgets supporting direct manipulation. For literals, we can reach into the code and replace their original definition with our new serialized value. 
-            </p>
-            <p>
-                More concretely, we can represent literal numbers (e.g. <tt>24601</tt>, or <tt>762</tt>) as sliders, and dragging numbers ends up replacing the numbers in the code. Likewise, if we represent a boolean as a check box, toggling the input ends up replacing <tt>false</tt> with <tt>true</tt> and vice versa. 
-            </p>
-
-            <p>
-                This works fine for literals, but starts to become conceptually problematic when we start to deal with computed expressions. After all, what would you expect to happen if you started to drag a slider attached to the expression <tt>1 + 1</tt>?
-            </p>
-
-            <p>
-
-            </p>
-
-
-            When you drag a slider or type in a text box or adjust a color picker on an expression that isn't a literal, Carbide tries to modify other literals in your code to accomplish that change. To make this behavior predicatable and give you some degree of control, Carbdide only modifies literals in the same cell that have open widgets attached to them. Carbide solves this optimization problem differently depending on the type of goal value. Currently, Carbide uses gradient descent for numerical values, string mapping for strings, inverted function knowledge for finctions with known inverses (<a href='/'>which you can declare</a>), and preperty mapping to compose these preimitives when you're modifying more complex objects.
-
             <h2>CodeMirror</h2>
 
             <p>
@@ -392,7 +364,6 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             <h2>Nondeterministic Layout Engine</h2>
             To Enable Carbidiculous behaviors, like treating text contours as elements that can block floating widgets, Carbide's layout engine uses a form of <a href='http://community.schemewiki.org/?amb'>McCarthy's AMB operator</a>. Essentially, because Carbide need to calculate layout greedily, layouts sometimes have to exist in a superposition of two states, that can only be resolved after further layout calculations. This is sort of like <a href='http://c2.com/cgi/wiki?QuantumBogoSort'>quantum bogo sort</a> for css.
 
-            <!--
 
             <h1>Backpropagation</h1>
 
@@ -436,7 +407,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
 
             <p>
                 A computation
-            </p>-->
+            </p>
 
 
 
