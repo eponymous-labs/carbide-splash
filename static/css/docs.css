@@ -83,13 +83,12 @@
 }
 
 .subtopic {
-    opacity:0.8;
     padding:7px 30px 7px 40px;
 }
 
 .subtopic.current {
-    background:rgb(213,221,255);
-    color:#21247d;
+    background: rgb(112, 129, 165);
+    color: white;
 }
 
 .topic {
@@ -99,7 +98,8 @@
 }
 
 .topic.current {
-    background:rgb(213,221,255);
+    background: rgb(112, 129, 165);
+    color: white;
 }
 
 pre {

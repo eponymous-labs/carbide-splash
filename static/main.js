@@ -108,6 +108,7 @@ tv_markers.forEach(function(tv_marker) {
 	img.autoplay = true
 	img.loop = true
 	// img.style.display = 'none'
+	img.style.opacity = .5
 	tv_marker.img = img
 	tv_scroller.appendChild(img)
 
@@ -125,11 +126,13 @@ document.addEventListener('scroll', function (e) {
 	if(active_marker){
 		// active_marker.className= '';
 		// active_marker.img.style.display = 'none'
+		active_marker.img.style.opacity = .5
 	}
 
 	active_marker = nearest(tv_markers, function(tv_marker){return tv_marker.getBoundingClientRect().top}, innerHeight/2)
 	// active_marker.className = 'active'
 	// active_marker.img.style.display = 'block'
+	active_marker.img.style.opacity = 1
 
 
 	var diff = tv_scroller.getBoundingClientRect().top -
