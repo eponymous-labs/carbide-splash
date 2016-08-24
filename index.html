@@ -9,18 +9,18 @@
     <link rel="stylesheet" type="text/css" href="static/css/docs.css">
     <link rel="stylesheet" type="text/css" href="static/css/prior-art.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600" rel="stylesheet">
 
 </head>
 <body>
 <div id='header'>
     
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600" rel="stylesheet">
     <!-- <div>Alpha Release | Don't mind the bugs!</div> -->
     <div class='spacer'></div>
     <a href="//alpha.trycarbide.com/@bijection">Examples</a>
     <a href="//alpha.trycarbide.com/anonymous">Anonymous</a>    
     <a href="//alpha.trycarbide.com/me">My Notebooks</a>
-    <a href="/">New Notebook</a>
+    <a href="/new">New Notebook</a>
 </div>
 <div id="splash">
     <div id='intro'>
@@ -304,10 +304,6 @@ data + 2 </code></pre>
 
             <h1 id='menagerie'>Widgets</h1>
 
-
-            <p>
-            </p>
-
             <h2>Numbers</h2>
             <div id='just-call-it-a-zoo'>
                 <div class='animal'><div class='animal-name'>slider</div><img src="static/img/slide-loop.gif"/></div>
@@ -402,7 +398,7 @@ data + 2 </code></pre>
             </div>
 
             <h2>Making Your Own Widgets 🎂</h2>
-            Carbide widgets are just react components (<a href="/">what's a react component</a>) with a static class property <code>title</code> and a static member function called match, with the signature <code>match(value, ast)</code>. Whenever you open a widget on some expression, carbide runs the expressions value and ast through all of the installed widgets' match functions to figure out which widgets it should show in the tabs. 
+            Carbide widgets are just react components (<a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus">what's a react component</a>) with a static class property <code>title</code> and a static member function called match, with the signature <code>match(value, ast)</code>. Whenever you open a widget on some expression, carbide runs the expressions value and ast through all of the installed widgets' match functions to figure out which widgets it should show in the tabs. 
 
             If you have a react component with a static title and match function, you can add it to your notebook like this: 
             <pre><code class="language-javascript">import React from 'react'
