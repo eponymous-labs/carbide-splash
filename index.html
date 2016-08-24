@@ -409,48 +409,7 @@ class YOLOWidget extends React.Component {
 
 doc.kernel.widgets.push(YOLOWidget)</code></pre>
             
-            <h1>Technology</h1>
-            <p>
-                There's a fair amount of tekmology and stuff that goes into Carbide, and to be totally honest, we totally pulled an all nighter trying to write copy for this website, and there's a lot of detail that we don't really have time to include. But hopefully over the coming weeks, we'll be able to publish some blog posts going into a bit more technical depth. 
-            </p>
-            <h2>SystemJS/JSPM</h2>
-            <p>
-                NPM is probably one of the largest and most successful package managers ever created (albeit not without a few <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">kerfluffles</a>). So it was pretty important to be able to easily import modules from NPM. 
-            </p>
-            <p>
-                Originally, we had written our own tiny implementation of NPM which would run in the browser (calling the official NPM API endpoint, locating tarballs, unpacking them in the browser, and loading the files appropriately). Separately, we were using Babel and Webpack to develop the application itself. 
-            </p>
-            <p>
-                But over the past few months we discovered <a href="https://github.com/systemjs/systemjs">SystemJS</a>, and ended up using JSPM to handle just about everything. In fact, nowadays Carbide's "Current Window" mode uses the same SystemJS loader for both the editor itself and the code which gets executed on it. This means that it'll technically be able to self-host, hot-reload, and instrument various parts of itself. That's kinda neat. 
-            </p>
 
-            <h2>BabelJS</h2>
-            <p>
-                Most browsers don't quite support all the latest features and proposals that people have drafted up, so in order to use the latest and greatest syntax and semantics, people have to use programs called "transpilers" which translate the source code of one language and into another one. 
-            </p>
-            <p>
-                But far more important— as far as Carbide is concerned, is just being able to have access to the abstract syntax tree of a chunk of code, and being able to instrument certain ranges. 
-            </p>
-
-            <h2>Top-Level Async/Await</h2>
-            <p>
-                <img src="/static/img/await.png" style="width: 40%; float: right">
-                To make everyone's life easier, Carbide cheats a bit and allows you to use the <tt>await</tt> keyword in the top level, as if you were writing an async function. The way this works under the hood is basically by detecting top level awaits, and wrapping your entire cell in an async function if it finds them. We've broken the babel transform that does this into <a href='https://github.com/eponymous-labs/babel-plugin-top-level-await'>its own repo</a>.
-            </p>
-
-
-            <h2>CodeMirror</h2>
-
-            <p>
-                When we started thinking about making Carbide self-hosting, we realized that t. 
-
-
-            </p>
-
-            Code rendering is carbide is handle by the fantastic <a href='https://codemirror.net/'>CodeMirror by Marijn</a>, with a few carbide specific hacks to the Codemirror internals. Specifically, Carbide modidifes the codemirror syntax highlighting engine to keep checkpoints that allow it only render the code in the on-screen cells. All of the other UI is drawn inrelation to the rendered code, and lazily rendered in a similar way. 
-
-            <h2>Nondeterministic Layout Engine</h2>
-            To Enable Carbidiculous behaviors, like treating text contours as elements that can block floating widgets, Carbide's layout engine uses a form of <a href='http://community.schemewiki.org/?amb'>McCarthy's AMB operator</a>. Essentially, because Carbide need to calculate layout greedily, layouts sometimes have to exist in a superposition of two states, that can only be resolved after further layout calculations. This is sort of like <a href='http://c2.com/cgi/wiki?QuantumBogoSort'>quantum bogo sort</a> for css.
 
 
             <h1>Backpropagation</h1>
@@ -480,7 +439,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             <h2>Strings</h2>
             <img src="/static/img/fizzbuzz.gif">
             <p>
-                While there have been many decades of work done on improving numerical optimization, there isn't nearly as much work done on generalizing the idea to other data structure. 
+                While there have been many decades of work done on improving numerical optimization, there isn't nearly as much work done on generalizing the idea to other data structures. 
             </p>
 
 
@@ -501,20 +460,87 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
                 A computation
             </p>
 
+            <h1>Technology</h1>
+            <p>
+                There's a fair amount of tekmology and stuff that goes into Carbide, and to be totally honest, we totally pulled an all nighter trying to write copy for this website, and there's a lot of detail that we don't really have time to include. But hopefully over the coming weeks, we'll be able to publish some blog posts going into a bit more technical depth. 
+            </p>
+            <h2>SystemJS/JSPM</h2>
+            <p>
+                NPM is probably one of the largest and most successful package managers ever created (albeit not without a few <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">kerfluffles</a>). So it was pretty important to be able to easily import modules from NPM. 
+            </p>
+            <p>
+                Originally, we had written our own tiny implementation of NPM which would run in the browser (calling the official NPM API endpoint, locating tarballs, unpacking them in the browser, and loading the files appropriately). Separately, we were using Babel and Webpack to develop the application itself. 
+            </p>
+            <p>
+                But over the past few months we discovered <a href="https://github.com/systemjs/systemjs">SystemJS</a>, and ended up using JSPM to handle just about everything. In fact, nowadays Carbide's "Current Window" mode uses the same SystemJS loader for both the editor itself and the code which gets executed on it. This means that it'll technically be able to self-host, hot-reload, and instrument various parts of itself. That's kinda neat. 
+            </p>
+
+            <h2>BabelJS</h2>
+            <p>
+                Most browsers don't quite support all the latest features and proposals that people have drafted up, so in order to use the latest and greatest syntax and semantics, people have to use programs called "transpilers" which translate the source code of one language and into another one. 
+            </p>
+            <p>
+                But far more important— as far as Carbide is concerned, is just being able to have access to the abstract syntax tree of a chunk of code, and being able to instrument certain ranges. 
+            </p>
+
+            <h2>Top-Level Async/Await</h2>
+            <p>
+                <img src="/static/img/await.png" style="width: 40%; float: right">
+                To make everyone's life easier, Carbide cheats a bit and allows you to use the <tt>await</tt> keyword in the top level, as if you were writing an async function. The way this works under the hood is basically by detecting top level awaits, and wrapping your entire cell in an async function if it finds them. 
+            </p>
+
+            <p>
+            We've broken out the Babel transform that does this into <a href='https://github.com/eponymous-labs/babel-plugin-top-level-await'>its own repo</a>.
+            </p>
+
+            <h2>Hot Reloading</h2>
+
+            <p>
+                <a href="https://github.com/gaearon/react-hot-loader">Hot reloading</a> is really neat, and it's rapidly become a staple of modern Javascript development (to whatever extent you can string those words together and pretend it's a phrase). But it's actually key to creating a fun interactive programming environment— being able to substitute modules without running everything from scratch. 
+            </p>
+
+            <p>
+                To accomplish this we've built our own Hot Reloading engine on top of JSPM. It's less agressive in reloading dependents than the <a href="https://github.com/capaj/systemjs-hot-reloader">SystemJS hot reloader</a> and the <a href="https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack">Webpack Hot module replacement</a> system. It exploits the fact that in ES6, references are "live" so imports can be updated simply by calling a getter. 
+            </p>
+
+            <p>
+                However, sometimes you actually do want Webpack's aggressive reloading of dependents— this can be done by exporting a variable <code>__forceReload</code>. 
+            </p>
+
+            <pre><code class="language-javascript">export const __forceReload = true</code></pre>
 
 
-
-
-            <h1>Advanced Topics</h1>
-            <h2>__unload handlers</h2>
-            To keep everything working smoothly when you manipulate complex projects, carbide exposes a API that allows you to specify your code's behavior when you reload it or interact with its attached widgets. To force your code to reloa when any of its dependencies change, export a variable <code>__forceReload</code> with a truthy value.
-<pre><code class="language-javascript">export const __forceReload = true</code></pre>
             To clean up stateful code in preparation for a reload, export a function called <code>__unload</code> that optionally takes the module compiled from the newer code.
 <pre><code class="language-javascript">export function __unload(new_module){
     cancelAllEventListeners()
-    unMountMyDOMElements()
-    // etc
 }</code></pre>
+
+
+            <h2>CodeMirror</h2>
+
+            <p>
+                When we started thinking about making Carbide self-hosting, we realized that it had to be made in such a way that it could handle large notebooks. Unfortunately if you use the HTML's natural layout mechanism to lay out your cells, everything still needs to be rendered on every keystroke— there's no way to do optimizations like rendering only the visible lines (because it's then the browser who figures out what a visible line is). 
+            </p>
+
+            <p>
+                Carbide's current implementation is kind of strange in this regard because we have a single gigantic CodeMirror instance whose document represents the total concatenation of all the cells in the document. We have a special layout algorithm to insert vertical spaces where appropriate so we have enough space to paint on user interface elements on top. 
+            </p>
+
+            <p>
+                This allows us to take advantage of CodeMirror's 
+            </p>
+
+            <h2>Nondeterministic Layout Engine</h2>
+
+            To Enable Carbidiculous behaviors, like treating text contours as elements that can block floating widgets, Carbide's layout engine uses a form of <a href='http://community.schemewiki.org/?amb'>McCarthy's AMB operator</a>. Essentially, because Carbide need to calculate layout greedily, layouts sometimes have to exist in a superposition of two states, that can only be resolved after further layout calculations. This is sort of like <a href='http://c2.com/cgi/wiki?QuantumBogoSort'>quantum bogo sort</a> for css.
+
+
+
+
+
+
+            <h1>Future</h1>
+
 
             <h2>creating new kernels</h2>
             Although Carbide is Javascript-first, parsing, compiling, and running code are all implemented as external modules. This means that it's possible to define a javascript madule that replaces the carbide kernel in order to run code in a different language. 
@@ -534,10 +560,7 @@ export async function evaluate(ast, probe_logger){
     return 4;
 }
 </code></pre>
-            In fact, it's so easy to create kernels that we couldn't really help our selves...
 
-
-            <h1>Roadmap</h1>
             <h2>Preview: Watlab Kernel</h2>
             Watlab is compile-to-javascript language inspired by Matlab. Almost all of the syteax is the same as ES2015, with addition of a postfix function application operator, matrix literals, and standard matrix operators (e.g. <code>A\b</code> to solve a system of linear equations).    
 
