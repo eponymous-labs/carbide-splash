@@ -122,7 +122,7 @@ tv_markers.forEach(function(tv_marker) {
 
 })
 
-document.addEventListener('scroll', function (e) {
+function kevin_scroll(e) {
 
 	if(active_marker){
 		active_marker.img.className= 'unfocused';
@@ -141,7 +141,7 @@ document.addEventListener('scroll', function (e) {
 	var next_marker = tv_markers[active_marker_index+1] || active_marker
 	var prev_marker = tv_markers[active_marker_index-1] || active_marker
 
-	active_marker.className = 'active'
+	// active_marker.className = 'active'
 	// active_marker.img.style.display = 'block'
 
 	var wrap_rect = tv_wrap.getBoundingClientRect()
@@ -205,8 +205,10 @@ document.addEventListener('scroll', function (e) {
 		tv.parentElement.className = ''
 		tv_scroller.style.top = 'initial'
 	}
-})
+}
 
+document.addEventListener('scroll', kevin_scroll)
+setTimeout(kevin_scroll, 200)
 
 var mag = document.querySelector('.mag')
 var magWrap = document.querySelector('.mag-wrap')

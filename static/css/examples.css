@@ -1,0 +1,37 @@
+#examples {
+	padding: 60px;
+	background: #4b608e;
+	color: #fff;
+}
+
+#examples h1, #examples h2, #examples a {
+	color: #fff;
+}
+
+.example {
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+	transition: .2s;
+	padding: 10px;
+	color: initial;
+	text-decoration: none;
+}
+
+.example-blurb {
+	flex: 1;
+}
+
+.example:hover {
+	background: rgba(0, 0, 0, 0.13);
+}
+
+.example-img {
+	// flex-grow: 1;
+	max-width: 500px;
+	margin-left: 60px;
+}
+
+.example-img img {
+	max-width: 100%;
+}
