@@ -441,7 +441,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             </p>
 
             <p>
-                In cas the optimization engine ever gets stuck in a place with zero gradient, the previous working parameters are remembered, so each interaction can start with the closest known reasonable point (We know it affectionately as Guillermo "Memo"'s Memoization). 
+                In case the optimization engine ever gets stuck in a place with zero gradient, the previous working parameters are remembered, so each interaction can start with the closest known reasonable point (We know it affectionately as Guillermo "Memo"'s Memoization). 
             </p>
 
             <h2>Strings</h2>
@@ -474,7 +474,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             </p>
             <h2>SystemJS/JSPM</h2>
             <p>
-                NPM is probably one of the largest and most successful package managers ever created (albeit not without a few <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">kerfluffles</a>). So it was pretty important to be able to easily import modules from NPM. 
+                NPM is probably one of the largest and most successful package managers ever created (albeit not without a few <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">kerfuffles</a>). So it was pretty important to be able to easily import modules from NPM. 
             </p>
             <p>
                 Originally, we had written our own tiny implementation of NPM which would run in the browser (calling the official NPM API endpoint, locating tarballs, unpacking them in the browser, and loading the files appropriately). Separately, we were using Babel and Webpack to develop the application itself. 
@@ -508,7 +508,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             </p>
 
             <p>
-                To accomplish this we've built our own Hot Reloading engine on top of JSPM. It's less agressive in reloading dependents than the <a href="https://github.com/capaj/systemjs-hot-reloader">SystemJS hot reloader</a> and the <a href="https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack">Webpack Hot module replacement</a> system. It exploits the fact that in ES6, references are "live" so imports can be updated simply by calling a getter. 
+                To accomplish this we've built our own Hot Reloading engine on top of JSPM. It's less aggressive in reloading dependents than the <a href="https://github.com/capaj/systemjs-hot-reloader">SystemJS hot reloader</a> and the <a href="https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack">Webpack Hot module replacement</a> system. It exploits the fact that in ES6, references are "live" so imports can be updated simply by calling a getter. 
             </p>
 
             <p>
@@ -551,7 +551,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
 
 
             <h2>creating new kernels</h2>
-            Although Carbide is Javascript-first, parsing, compiling, and running code are all implemented as external modules. This means that it's possible to define a javascript madule that replaces the carbide kernel in order to run code in a different language. 
+            Although Carbide is Javascript-first, parsing, compiling, and running code are all implemented as external modules. This means that it's possible to define a javascript module that replaces the carbide kernel in order to run code in a different language. 
 
             Here's an example of a minimal kernel: 
 <pre><code class="language-javascript">export async function parse(code){
@@ -570,17 +570,17 @@ export async function evaluate(ast, probe_logger){
 </code></pre>
 
             <h2>Preview: Watlab Kernel</h2>
-            Watlab is compile-to-javascript language inspired by Matlab. Almost all of the syteax is the same as ES2015, with addition of a postfix function application operator, matrix literals, and standard matrix operators (e.g. <code>A\b</code> to solve a system of linear equations).    
+            Watlab is compile-to-javascript language inspired by Matlab. Almost all of the syntax is the same as ES2015, with addition of a postfix function application operator, matrix literals, and standard matrix operators (e.g. <code>A\b</code> to solve a system of linear equations).    
 
             <h2>Preview: Python Kernel</h2>
-            A tiny kernel that communcates with a local python REPL. Pros: filesystem access, cool python libraries. Cons: requires an <code>npm install; npm start</code> command.
+            A tiny kernel that communicates with a local python REPL. Pros: filesystem access, cool python libraries. Cons: requires an <code>npm install; npm start</code> command.
             <pre>[images]</pre>
             
             <h2>Preview: MIT Scheme Kernel</h2>
-            A tiny kernel that communcates with a local MIT Scheme REPL. Pros: filesystem access, arcane wizardry. Cons: requires an <code>npm install; npm start</code> command, arcane wizardry.
+            A tiny kernel that communicates with a local MIT Scheme REPL. Pros: filesystem access, arcane wizardry. Cons: requires an <code>npm install; npm start</code> command, arcane wizardry.
             <pre>[images]</pre>
             
-            <h2>Preview: Time Travelling</h2>
+            <h2>Preview: Time Traveling</h2>
             One of the features that didn't quite make it into the alpha release is a Bret Victor Style program execution scrubber that lets you get a more intuitive sense of stuff like for loops: 
             <pre>[images]</pre>
             Stay Tuned.
