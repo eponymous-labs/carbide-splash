@@ -47,7 +47,6 @@
 
 #tv video, #tv-wrap {
     width:600px;
-    transition: .2s;
     display: block;
 }
 
@@ -59,17 +58,25 @@
 
 #tv-scroller {
     position: absolute;
-    transition: top .2s;
+    margin-top: -60px;
+    // padding: 60px 0;
+    // transition: top .2s;
+}
+
+#tv-scroller.bottom {
+    padding: 0;
 }
 
 #tv-wrap {
     display:flex;
     align-items:flex-start;
     margin:60px 0 60px 60px;
+    position: relative;
+    // transition: .2s;
 }
 
 #tv-wrap.bottom {
-    align-items:flex-end;
+    // align-items:flex-end;
 }
 
 #tv.floating {

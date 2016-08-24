@@ -135,12 +135,12 @@ document.addEventListener('scroll', function (e) {
 	var diff = tv_scroller.getBoundingClientRect().top -
 		active_marker.img.getBoundingClientRect().top
 
-	tv_scroller.style.top = diff + 'px'
+	tv_scroller.style.top = diff + 60 + 'px'
 
 	var rect = tv_wrap.getBoundingClientRect()
 	var tv_height = active_marker.img.getBoundingClientRect().height
 	var top_offset = innerHeight/2 - tv_height/2
-	var tv_bottom = tv_height + top_offset
+	var tv_bottom = tv_height + top_offset + 60
 
 	tv_pointer.style.top = active_marker.getBoundingClientRect().top - quick_content.getBoundingClientRect().top + 10 + 'px'
 
@@ -151,7 +151,9 @@ document.addEventListener('scroll', function (e) {
 	} else if (rect.bottom <= tv_bottom){
 		tv.className = 'bottom'
 		tv.parentElement.className = 'bottom'
-		tv_scroller.style.top = 'initial'
+
+		diff = tv_wrap.getBoundingClientRect().height - tv_scroller.getBoundingClientRect().height + 60
+		tv_scroller.style.top = diff + 'px'
 	} else {
 		tv.className = ''
 		tv.parentElement.className = ''
