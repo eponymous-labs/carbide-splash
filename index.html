@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="static/css/quick.css">
     <link rel="stylesheet" type="text/css" href="static/css/docs.css">
     <link rel="stylesheet" type="text/css" href="static/css/prior-art.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+
 </head>
 <body>
 <div id='header'>
@@ -34,7 +36,7 @@
             </div>
             <p>
                 
-                Carbide is <b>a new kind of programming environment</b> which, as is obligatory in this day and age:
+                Carbide is <b>a new kind of programming environment</b> which <small>(as obligatory in this day and age)</small>:
                 <ul>
                     <li>Requires <b>no installation</b> or <b>setup</b></li>
                     <li>Supports <b>Javascript</b>/<b>ES2015</b></li>
@@ -61,7 +63,7 @@
         </div>
         <div>
             <p>
-                <h2>More Crazily...</h2>
+                <h2>...Crazy Stuff</h2>
                 <ul>
 
                     <li>Comments live in a <b>Rich Text</b> sidebar <b>#LiterateProgramming</b></li>
@@ -79,7 +81,7 @@
     </div>
 
     <div id='outro'>
-            Carbide is pretty weird (not just because it's pretty buggy), so we highly recommend at least skimming the <a href='#quick'>Quick Start Guide</a>. <small>If you're truly an unstoppable force, you can also <a href='//alpha.trycarbide.com/@bijection'>jump straight to some examples</a>.</small> 
+            Carbide is pretty weird (not just because it's still fairly buggy), so we highly recommend at least skimming the <a href='#quick'>Quick Start Guide</a>. <small>But if you're <i>truly</i> an unstoppable force, you can also <a href='//alpha.trycarbide.com/@bijection'>jump straight to some examples</a>.</small> 
     </div>
 
 </div>
@@ -97,22 +99,61 @@
         <h1>Quick Start</h1>
 
         <h2>Running Code</h2>
-        <p image='static/mp4/alert-hello-world.mp4'>Type some code in the box and press the run button the bottom right.</p>
-        <p image='static/mp4/external-window-run.mp4'>You can optionally run your code in a sepparate window, if you want ot do thing like modifying the DOM.</p>
+
+        <p image='static/mp4/two-plus-two.mp4'>
+            Running code in Carbide is as simple as hitting the <b>"Run"</b> button located on the bottom right of any cell</b>. You can also quickly run the current cell with (<b>Cmd-Enter</b>). 
+        </p>
+        <!--<p>
+            Carbide is a notebook programming environment, so documents are organized into different "cells". Each cell can be executed independently (but can import from other modules). 
+        </p>-->
+        <p>
+            Currently Carbide supports the latest version of <b>Javascript</b>, known as ES2015 through built-in support for BabelJS. You can even use ES7's <b>async/await</b> features without wrapping your code in functions. 
+            
+        </p>
+        <p>
+            In addition to running code locally within the editor, you can choose to <b>run code within a separate window</b> (this is nice for building out apps which need access to the DOM). To switch to this mode, click on the <b>language dropdown</b> on the top of the page, and select "<b>Javascript (Separate Window)</b>". 
+        </p>
+        <p>
+            We haven't launched support for other programming languages yet (rest assured it's on <a href="#roadmap">our roadmap</a>). 
+        </p>        
 
         <h2>Attaching Probes</h2>
-        <p>When you run code in Carbide, some expressions get underlined automatically — these things are called "probes".</p>
-        <p>When an underlined expression is evaluated, its value is shown right below the line.</p>
-        <p image='static/mp4/attaching-probes.mp4'>You can attach extra probes to any expression by selecting it and pressing “Cmd-I” (think of it as I for Inspect).</p>
-        <p>Rather than littering your code with print statements and breaking up nested expressions, or painstakingly stepping through with a traditional debugger, it’s easy to see an overview of all the values as they flow through a program. </p>
+        <p  image='static/mp4/attaching-probes.mp4'>
+            In Carbide, you see the results of running your program in "probes" which are displayed <b>in between the lines</b> of your code. 
+        </p>
+        <p>
+            You can <b>inspect any expression</b> by selecting it and hitting <b>Cmd-I</b>. 
+        </p>
+
+        <p>
+            Rather than littering your code with print statements and breaking up nested expressions, or painstakingly stepping through with a traditional debugger, it’s easy to see an overview of all the values as they flow through a program. 
+        </p>
+
+        <p>
+            As a convenience, the outermost expression on any line is automatically logged, and a widget is shown for the last expression of the cell. 
+        </p>
+        
         
         <h2>Visualization Widgets</h2>
-        <p>When you want to see more than the basic summary probes show you, you can click any probe to open a "widget" in a box on the right.</p>
-        <p image='static/mp4/lots-of-widgets.mp4'>On the top of a widget is a tab bar which lets you switch between different representations of a piece of data. A string like “orange” can be visualized as a text box, or a color picker.</p>
-        <p>Beyond simply looking at a piece of data, visualization widgets can also incorporate knowledge of your code's abstract syntax tree. This allows us to visualize array[0] as a selector into the array, or “house” == “horse” as an interactive string comparison, rather than the uninformative “false”. You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.</p>
+        
+        <p image='static/mp4/lots-of-widgets.mp4'>When you want to see more than the basic summary probes show you, you can <b>click any probe</b> to open a "widget", which appears to the right of your code. </p>
+
+
+        <p>
+            <b>Hovering over a widget</b> expands a tab bar on top, which allows you to <b>switch between different representations</b> of your data. A string like "orange" can be visualized as color, as plain text, or as JSON, and widgets allow you to easily switch between them. 
+        </p>
+
+        <p>Beyond simply looking at a piece of data, visualization widgets can also incorporate knowledge of your code's abstract syntax tree. This allows us to visualize <tt>array[0]</tt> as a selector into the array, or <tt>“house” == “horse”</tt> as an interactive string comparison, rather than the uninformative <tt>false</tt>. You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.</p>
 
         <h2>Manipulation Widgets</h2>
-        <p image='static/mp4/murrica.mp4'>Visualization and Manipulation are two sides of the same coin, and in Carbide both are accomplished through the same means. </p>
+        <p image='static/mp4/murrica.mp4'>
+        
+
+
+
+        Visualization and Manipulation are two sides of the same coin, and in Carbide both are accomplished through the same means. 
+
+        </p>
         <p>For example, a slider attached to a number gives a nice interface for . </p>
         
         <h2>Multiple Cells</h2>
@@ -140,7 +181,7 @@
             Notebooks, as opposed to say typewriters, let you sketch your ideas anywhere on the page, however you want. In a noteboook programming environment, you write and run code out of order, and often investigate multiple avenues of attack in parallel.
 
 
-            <h1 id='menagerie'>Widget Menagerie</h1>
+            <h1 id='menagerie'>Widgets</h1>
 
 
             <p>
@@ -236,7 +277,7 @@
                 <div class='animal'><div class='animal-name'>map</div><img src="static/img/map.png"/></div>
                 <div class='animal'><div class='animal-name'>matrix</div><img src="static/img/matrix.png"/></div>
                 <div class='animal'><div class='animal-name'>object</div><img src="static/img/object.png"/></div>
-                <div class='animal'><div class='animal-name'>react</div><img src="static/img/react.png"/></div>
+                
                 <div class='animal'><div class='animal-name'>regex</div><img src="static/img/regex.png"/></div>
                 <div class='animal'><div class='animal-name'>rename</div><img src="static/img/rename.png"/></div>
                 <div class='animal'><div class='animal-name'>selector</div><img src="static/img/selector.png"/></div>
@@ -250,25 +291,45 @@
             Carbide widgets are just react components (<a href="/">what's a react component</a>) with a static class property <code>title</code> and a static member function called match, with the signature <code>match(value, ast)</code>. Whenever you open a widget on some expression, carbide runs the expressions value and ast through all of the installed widgets' match functions to figure out which widgets it should show in the tabs. 
 
             If you have a react component with a static title and match function, you can add it to your notebook like this: 
-            <pre>
-    import React from  'react'
-    class YOLOWidget extends React.Component {
-        static title = '#YOLO'
-        static match(value, ast){
-            return value === '#YOLO'
-        }
-        render(){
-            return &lt;a href="https://en.wikipedia.org/wiki/YOLO_(motto)"&gt;
-                https://en.wikipedia.org/wiki/YOLO_(motto)
-            &lt;/a&gt;
-        }
+            <pre><code class="language-javascript">import React from 'react'
+class YOLOWidget extends React.Component {
+    static title = '#YOLO'
+    static match(value, ast){
+        return value === '#YOLO'
     }
+    render(){
+        return &lt;a href="https://en.wikipedia.org/wiki/YOLO_(motto)"&gt;
+            https://en.wikipedia.org/wiki/YOLO_(motto)
+        &lt;/a&gt;
+    }
+}
 
-    doc.kernel.widgets.push(YOLOWidget)
-            </pre>
-
-            <h1>Architecture and Technology (how things work)</h1>
+doc.kernel.widgets.push(YOLOWidget)</code></pre>
             
+            <h1>Technology</h1>
+            <p>
+
+            </p>
+            <h2>SystemJS/JSPM</h2>
+            <p>
+
+            </p>
+
+            <h2>BabelJS</h2>
+            <p>
+
+            </p>
+
+            <h2>Top-Level Async/Await</h2>
+            
+            <p>
+
+            </p>
+
+
+
+
+
             <h2>Babel Transformation / Top Level Await</h2>
             To make everyone's life easier, Carbide cheats a bit and allows you to use the await keyword in the top level, as if you were writing an async function. The way this works under the hood is basically by detecting top level awaits, and wrapping your entire cell in an async function if it finds them. We've broken the babel transform that does this into <a href='https://github.com/eponymous-labs/babel-plugin-top-level-await'>its own repo</a>.
             
@@ -287,36 +348,97 @@
             <h2>Nondeterministic Layout Engine</h2>
             To Enable Carbidiculous behaviors, like treating text contours as elements that can block floating widgets, Carbide's layout engine uses a form of <a href='http://community.schemewiki.org/?amb'>McCarthy's AMB operator</a>. Essentially, because Carbide need to calculate layout greedily, layouts sometimes have to exist in a superposition of two states, that can only be resolved after further layout calculations. This is sort of like <a href='http://c2.com/cgi/wiki?QuantumBogoSort'>quantum bogo sort</a> for css.
 
+            <!--
+
+            <h1>Backpropagation</h1>
+
+            <p>
+                One of the central ideas behind Carbide is to represent "inputs" and "outputs" in the same way, through widgets supporting direct manipulation. For literals, we can reach into the code and replace their original definition with our new serialized value. 
+            </p>
+            <p>
+                More concretely, we can represent literal numbers (e.g. <tt>24601</tt>, or <tt>762</tt>) as sliders, and dragging numbers ends up replacing the numbers in the code. Likewise, if we represent a boolean as a check box, toggling the input ends up replacing <tt>false</tt> with <tt>true</tt> and vice versa. 
+            </p>
+
+            <p>
+                This works fine for literals, but starts to become conceptually problematic when we start to deal with computed expressions. After all, what would you expect to happen if you started to drag a slider attached to the expression <tt>1 + 1</tt>?
+            </p>
+
+
+            <h2>Numbers</h2>
+            <img src="/static/img/slide-loop.gif">
+            <p>
+                For the mathematically minded, you can interpret the entire program as a function whose arguments are the literals in the program, and whose output is the particular inspected expression. The challenge is then to find an assignment to the arguments, such that the output is as close as possible to the desired value. Once that's done, you can substitute those literals back into the code, and you've assembled a new program whose output at that arbitrary expression is what you told it to do. 
+            </p>
+
+            <p>
+                In other words, we're trying to solve for the inverse of a function. Another equivalent (more specific) framing of the problem is that we're optimizing a cost function (the distance between the output and the desired target output) over a space of parameters. 
+            </p>
+
+            <p>
+                Fortunately there's a massive amount of literature available about the problem of unconstrained (or constrained!) minimization. We're currently using a version of NumericJS's <tt>uncmin</tt> function, which implements a quasi-newton method (similar to <a href="https://en.wikipedia.org/wiki/Limited-memory_BFGS">L-BFGS</a>), which is a generalization of Newton's root-finding method to multiple parameters. 
+            </p>
+
+            <p>
+                Quasi-Newton methods need to calculate the gradient of a function at each step to determine which direction to travel toward. Currently this entails evaluating the function several times with slight tweaks to the existing parameters (in the future one could imagine implementing <a href="https://en.wikipedia.org/wiki/Automatic_differentiation">automatic differentiation</a> so one would only need to evaluate once per step). 
+            </p>
+
+            <h2>Strings</h2>
+            <img src="/static/img/fizzbuzz.gif">
+            <p>
+
+            </p>
+
+
+            <h2>Nested Objects</h2>
+
+            <p>
+
+            </p>
+            <h2>Declared Inverses</h2>
+
+            <p>
+            </p>
+
+
+            <h2>Cascading Approaches</h2>
+
+            <p>
+                A computation
+            </p>-->
+
+
+
+
+
             <h1>Advanced Topics</h1>
             <h2>__unload handlers</h2>
             To keep everything working smoothly when you manipulate complex projects, carbide exposes a API that allows you to specify your code's behavior when you reload it or interact with its attached widgets. To force your code to reloa when any of its dependencies change, export a variable <code>__forceReload</code> with a truthy value.
-            <pre>export const __forceReload = true</pre>
+<pre><code class="language-javascript">export const __forceReload = true</code></pre>
             To clean up stateful code in preparation for a reload, export a function called <code>__unload</code> that optionally takes the module compiled from the newer code.
-            <pre>export function __unload(new_module){
+<pre><code class="language-javascript">export function __unload(new_module){
     cancelAllEventListeners()
     unMountMyDOMElements()
     // etc
-}</pre>
+}</code></pre>
 
             <h2>creating new kernels</h2>
             Although Carbide is Javascript-first, parsing, compiling, and running code are all implemented as external modules. This means that it's possible to define a javascript madule that replaces the carbide kernel in order to run code in a different language. 
 
             Here's an example of a minimal kernel: 
-<pre>
-    export async function parse(code){
-        return; // the simplest parse.
-        // In a better kernel we'd return some kind of ast.
-    }
+<pre><code class="language-javascript">export async function parse(code){
+    return; // the simplest parse.
+    // In a better kernel we'd return some kind of ast.
+}
 
-    export async function probe(start, end, probe_id, ast){
-        return {probe_id: probe_id}
-    }
+export async function probe(start, end, probe_id, ast){
+    return {probe_id: probe_id}
+}
 
-    export async function evaluate(ast, probe_logger){
-        if(ast.probe_id) probe_logger(probe_id, 4);
-        return 4;
-    }
-</pre>
+export async function evaluate(ast, probe_logger){
+    if(ast.probe_id) probe_logger(probe_id, 4);
+    return 4;
+}
+</code></pre>
             In fact, it's so easy to create kernels that we couldn't really help our selves...
 
 
@@ -354,6 +476,10 @@
 asdfjoijsadf
 </div>
  -->
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js"></script>
+
+
 <script type="text/javascript" src='static/main.js'></script>
 </body>
 </html>
