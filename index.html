@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Carbide Alpha</title>
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
     <link rel="stylesheet" type="text/css" href="static/css/splash.css">
     <link rel="stylesheet" type="text/css" href="static/css/quick.css">
@@ -70,7 +70,7 @@
 
                     <li>Carbide shows results <b>in-between</b> the lines of your code— letting you <b>see data in context</b></li>
 
-                    <li>The result of any expression can be <b>logged, visualized</b>, and <b>directly manipulated</b> with powerful (and shiny) <b>widgets</b></li>
+                    <li>The result of any expression can be <b>logged, visualized</b>, and <b>directly manipulated</b> with powerful <small>(and shiny)</small> <b>widgets</b></li>
 
                     <li>Carbide doesn't distinguish between <b>input</b> and <b>output</b>, using generalized <b>machine learning</b> techniques to run programs <b>backwards</b></li>
                     
@@ -143,7 +143,11 @@
             <b>Hovering over a widget</b> expands a tab bar on top, which allows you to <b>switch between different representations</b> of your data. A string like "orange" can be visualized as color, as plain text, or as JSON, and widgets allow you to easily switch between them. 
         </p>
 
-        <p>Beyond simply looking at a piece of data, visualization widgets can also incorporate knowledge of your code's abstract syntax tree. This allows us to visualize <tt>array[0]</tt> as a selector into the array, or <tt>“house” == “horse”</tt> as an interactive string comparison, rather than the uninformative <tt>false</tt>. You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.</p>
+        <p>Beyond simply looking at a piece of data, visualization widgets can also incorporate knowledge of your code's abstract syntax tree. This allows us to visualize <tt>array[0]</tt> as a selector into the array, or <tt>“house” == “horse”</tt> as an interactive string comparison, rather than the uninformative <tt>false</tt>.</p>
+
+        <p>
+         You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.
+         </p>
 
         <h2>Manipulation Widgets</h2>
         <p image='static/mp4/murrica.mp4'>
@@ -157,11 +161,14 @@
         <p>For example, a slider attached to a number gives a nice interface for . </p>
         
         <h2>Multiple Cells</h2>
+        <p image='static/mp4/inserting-cells.mp4'>
         Code in carbide lives in boxes called cells. In the examples before this we only had one cell, but when you code gets bigger, or when you want to try out different approaches to a problem at the same time, you can create extra cells by clicking any of the ‘+ insert cell’ buttons. To share variables between cells, use the javascript import/export syntax. Check out the babel ES2105 guide for a full treatment of the syntax.
-
+        </p>
         <h2>Saving and Sharing</h2>
+        <p image='static/mp4/saving-gist.mp4'>
         Carbide notebooks are all public (<a href="/">can I has private notebooks</a>), and they get stored on github as gists. 
         If you're logged in when you click Save or press command S the gist will be under your github account. If you aren't, it will be on carbide-public. Notebook urls stay the same as long as you don't delete the underlying gist, so you can copy and paste links from the address bar to share your creations.
+        </p>
     </div>
 </div>
 
@@ -176,9 +183,12 @@
 
     <div id="content-wrap">
         <div id="content">
+            <!--
             <h1>Why Carbide?</h1>
             <h2>Who is Notebook Programming?</h2>
             Notebooks, as opposed to say typewriters, let you sketch your ideas anywhere on the page, however you want. In a noteboook programming environment, you write and run code out of order, and often investigate multiple avenues of attack in parallel.
+
+            -->
 
 
             <h1 id='menagerie'>Widgets</h1>
@@ -287,7 +297,7 @@
                 <div class='animal'><div class='animal-name'>tree</div><img src="static/img/tree.png"/></div>            
             </div>
 
-            <h2>Making Your Own Widgets</h2>
+            <h2>Making Your Own Widgets 🎂</h2>
             Carbide widgets are just react components (<a href="/">what's a react component</a>) with a static class property <code>title</code> and a static member function called match, with the signature <code>match(value, ast)</code>. Whenever you open a widget on some expression, carbide runs the expressions value and ast through all of the installed widgets' match functions to figure out which widgets it should show in the tabs. 
 
             If you have a react component with a static title and match function, you can add it to your notebook like this: 
@@ -308,50 +318,38 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             
             <h1>Technology</h1>
             <p>
-
+                There's a fair amount of tekmology and stuff that goes into Carbide, and to be totally honest, we totally pulled an all nighter trying to write copy for this website, and there's a lot of detail that we don't really have time to include. But hopefully over the coming weeks, we'll be able to publish some blog posts going into a bit more technical depth. 
             </p>
             <h2>SystemJS/JSPM</h2>
             <p>
-
+                NPM is probably one of the largest and most successful package managers ever created (albeit not without a few <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">kerfluffles</a>). So it was pretty important to be able to easily import modules from NPM. 
+            </p>
+            <p>
+                Originally, we had written our own tiny implementation of NPM which would run in the browser (calling the official NPM API endpoint, locating tarballs, unpacking them in the browser, and loading the files appropriately). Separately, we were using Babel and Webpack to develop the application itself. 
+            </p>
+            <p>
+                But over the past few months we discovered <a href="https://github.com/systemjs/systemjs">SystemJS</a>, and ended up using JSPM to handle just about everything. In fact, nowadays Carbide's "Current Window" mode uses the same SystemJS loader for both the editor itself and the code which gets executed on it. This means that it'll technically be able to self-host, hot-reload, and instrument various parts of itself. That's kinda neat. 
             </p>
 
             <h2>BabelJS</h2>
             <p>
-
+                Most browsers don't quite support all the latest features and proposals that people have drafted up, so in order to use the latest and greatest syntax and semantics, people have to use programs called "transpilers" which translate the source code of one language and into another one. 
+            </p>
+            <p>
+                But far more important— as far as Carbide is concerned, is just being able to have access to the abstract syntax tree of a chunk of code, and being able to instrument certain ranges. 
             </p>
 
             <h2>Top-Level Async/Await</h2>
-            
             <p>
-
+                <img src="/static/img/await.png" style="width: 40%; float: right">
+                To make everyone's life easier, Carbide cheats a bit and allows you to use the <tt>await</tt> keyword in the top level, as if you were writing an async function. The way this works under the hood is basically by detecting top level awaits, and wrapping your entire cell in an async function if it finds them. We've broken the babel transform that does this into <a href='https://github.com/eponymous-labs/babel-plugin-top-level-await'>its own repo</a>.
             </p>
 
 
-
-
-
-            <h2>Babel Transformation / Top Level Await</h2>
-            To make everyone's life easier, Carbide cheats a bit and allows you to use the await keyword in the top level, as if you were writing an async function. The way this works under the hood is basically by detecting top level awaits, and wrapping your entire cell in an async function if it finds them. We've broken the babel transform that does this into <a href='https://github.com/eponymous-labs/babel-plugin-top-level-await'>its own repo</a>.
             
-            <h2>How Backprop Works</h2>
-            When you drag a slider or type in a text box or adjust a color picker on an expression that isn't a literal, Carbide tries to modify other literals in your code to accomplish that change. To make this behavior predicatable and give you some degree of control, Carbdide only modifies literals in the same cell that have open widgets attached to them. Carbide solves this optimization problem differently depending on the type of goal value. Currently, Carbide uses gradient descent for numerical values, string mapping for strings, inverted function knowledge for finctions with known inverses (<a href='/'>which you can declare</a>), and preperty mapping to compose these preimitives when you're modifying more complex objects.
+            <h2  style="clear:both">Backpropagation</h2>
 
-            <h2>Prior Art</h2>
-            <img src="static/img/fancy_logo.svg" style="width:60px;float:left;vertical-align: top;margin-right:10px;">arbide is heavily inspired by Previous Notebook programming environments, especially Mathematica. Our comment system is a knod to literate programming as pioneered by Knuth. Interlinear annotation and direct manuipulation have their roots in Sutherlands Sketchpad and have been more recently distrubted in the works of Bret Victor. 
-
-            <h2>JSPM / Self Hosting</h2>
-            Carbide uses SystemJS for all of its external dependencies. Intererstingly enough, Carbide gets built by the same code that buids code you run in carbide. Carbide is essetially a ten thousand line carbide notebook, running in Carbide.
-
-            <h2>CodeMirror / Matte</h2>
-            Code rendering is carbide is handle by the fantastic <a href='https://codemirror.net/'>CodeMirror by Marijn</a>, with a few carbide specific hacks to the Codemirror internals. Specifically, Carbide modidifes the codemirror syntax highlighting engine to keep checkpoints that allow it only render the code in the on-screen cells. All of the other UI is drawn inrelation to the rendered code, and lazily rendered in a similar way. 
-
-            <h2>Nondeterministic Layout Engine</h2>
-            To Enable Carbidiculous behaviors, like treating text contours as elements that can block floating widgets, Carbide's layout engine uses a form of <a href='http://community.schemewiki.org/?amb'>McCarthy's AMB operator</a>. Essentially, because Carbide need to calculate layout greedily, layouts sometimes have to exist in a superposition of two states, that can only be resolved after further layout calculations. This is sort of like <a href='http://c2.com/cgi/wiki?QuantumBogoSort'>quantum bogo sort</a> for css.
-
-            <!--
-
-            <h1>Backpropagation</h1>
-
+            <img src="/static/img/slide-loop.gif" style="width: 40%; float: right">
             <p>
                 One of the central ideas behind Carbide is to represent "inputs" and "outputs" in the same way, through widgets supporting direct manipulation. For literals, we can reach into the code and replace their original definition with our new serialized value. 
             </p>
@@ -363,6 +361,22 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
                 This works fine for literals, but starts to become conceptually problematic when we start to deal with computed expressions. After all, what would you expect to happen if you started to drag a slider attached to the expression <tt>1 + 1</tt>?
             </p>
 
+            <p>
+
+            </p>
+
+
+            When you drag a slider or type in a text box or adjust a color picker on an expression that isn't a literal, Carbide tries to modify other literals in your code to accomplish that change. To make this behavior predicatable and give you some degree of control, Carbdide only modifies literals in the same cell that have open widgets attached to them. Carbide solves this optimization problem differently depending on the type of goal value. Currently, Carbide uses gradient descent for numerical values, string mapping for strings, inverted function knowledge for finctions with known inverses (<a href='/'>which you can declare</a>), and preperty mapping to compose these preimitives when you're modifying more complex objects.
+
+            <h2>CodeMirror</h2>
+            Code rendering is carbide is handle by the fantastic <a href='https://codemirror.net/'>CodeMirror by Marijn</a>, with a few carbide specific hacks to the Codemirror internals. Specifically, Carbide modidifes the codemirror syntax highlighting engine to keep checkpoints that allow it only render the code in the on-screen cells. All of the other UI is drawn inrelation to the rendered code, and lazily rendered in a similar way. 
+
+            <h2>Nondeterministic Layout Engine</h2>
+            To Enable Carbidiculous behaviors, like treating text contours as elements that can block floating widgets, Carbide's layout engine uses a form of <a href='http://community.schemewiki.org/?amb'>McCarthy's AMB operator</a>. Essentially, because Carbide need to calculate layout greedily, layouts sometimes have to exist in a superposition of two states, that can only be resolved after further layout calculations. This is sort of like <a href='http://c2.com/cgi/wiki?QuantumBogoSort'>quantum bogo sort</a> for css.
+
+            <!--
+
+            <h1>Backpropagation</h1>
 
             <h2>Numbers</h2>
             <img src="/static/img/slide-loop.gif">
@@ -475,6 +489,11 @@ export async function evaluate(ast, probe_logger){
 
 asdfjoijsadf
 </div>
+
+
+            <h2>Prior Art</h2>
+            <img src="static/img/fancy_logo.svg" style="width:60px;float:left;vertical-align: top;margin-right:10px;">arbide is heavily inspired by Previous Notebook programming environments, especially Mathematica. Our comment system is a knod to literate programming as pioneered by Knuth. Interlinear annotation and direct manuipulation have their roots in Sutherlands Sketchpad and have been more recently distrubted in the works of Bret Victor. 
+
  -->
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js"></script>

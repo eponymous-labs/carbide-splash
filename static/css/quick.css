@@ -53,8 +53,10 @@
 
 #tv video {
     margin: 60px 0;
-    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.57);
+    padding-top: 5px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.44);
     border-radius: 5px;
+    transition: 0.4s linear;
 }
 
 #tv-scroller {
@@ -106,6 +108,13 @@
 
 .mag-wrap {
     position:relative;
+}
+
+#tv .unfocused {
+    opacity: 0.5;
+    filter: blur(2px);
+    transform: scale(0.95);
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.10);
 }
 
 
