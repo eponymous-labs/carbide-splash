@@ -1,4 +1,14 @@
 .prior-art {
-	background: yellow;
-	height: 1000px;
+	background: #4b608e;
+	min-height: 1000px;
+	padding: 60px;
+	color: #fff;
+}
+
+
+.prior-art h1 {
+    font-weight: 100;
+    font-size: 45px;
+    margin-top: 0;
+    color: white;
 }
