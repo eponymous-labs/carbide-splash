@@ -152,6 +152,17 @@
         <h2>Manipulation Widgets</h2>
         <p image='static/mp4/murrica.mp4'>
         
+        The <b>exact same widgets</b> which were used for visualizing data can also be used for <b>manipulating data</b>. This is an idea which really lies at the heart of what Carbide is— <b>peeling away the one-way mirror</b> found in most data visualization tools which forces you to look and not touch. 
+
+        </p>
+
+        <p>
+        For example, we could represent the number "42" as a slider with the bounds set between 0 and 100. As a visualization, this gives me some spatial sense of how large this number is. 
+
+        </p>
+
+
+        <p>
 
 
 
@@ -369,6 +380,13 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             When you drag a slider or type in a text box or adjust a color picker on an expression that isn't a literal, Carbide tries to modify other literals in your code to accomplish that change. To make this behavior predicatable and give you some degree of control, Carbdide only modifies literals in the same cell that have open widgets attached to them. Carbide solves this optimization problem differently depending on the type of goal value. Currently, Carbide uses gradient descent for numerical values, string mapping for strings, inverted function knowledge for finctions with known inverses (<a href='/'>which you can declare</a>), and preperty mapping to compose these preimitives when you're modifying more complex objects.
 
             <h2>CodeMirror</h2>
+
+            <p>
+                When we started thinking about making Carbide self-hosting, we realized that t. 
+
+
+            </p>
+
             Code rendering is carbide is handle by the fantastic <a href='https://codemirror.net/'>CodeMirror by Marijn</a>, with a few carbide specific hacks to the Codemirror internals. Specifically, Carbide modidifes the codemirror syntax highlighting engine to keep checkpoints that allow it only render the code in the on-screen cells. All of the other UI is drawn inrelation to the rendered code, and lazily rendered in a similar way. 
 
             <h2>Nondeterministic Layout Engine</h2>
