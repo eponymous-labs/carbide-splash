@@ -8,6 +8,13 @@
 	color: #fff;
 }
 
+
+#examples h1 {
+    font-weight: 100;
+    font-size: 45px;
+    margin-top: 0;
+}
+
 .example {
 	display: flex;
 	justify-content: space-between;
@@ -16,6 +23,10 @@
 	padding: 10px;
 	color: initial;
 	text-decoration: none;
+}
+
+#examples-container {
+	column-count: 2;
 }
 
 .example-blurb {
@@ -33,5 +44,5 @@
 }
 
 .example-img img {
-	max-width: 100%;
+	width: 300px;
 }
