@@ -43,7 +43,7 @@ function nearest(arr, f, v){
 
     min = clamp(max, 0, arr.length-1)
 	max = clamp(max + 1, 0, arr.length-1)
-	return Math.abs(f(arr[min]) - v) < Math.abs(f(arr[max]) - v) ? arr[min] : arr[max]
+	return Math.abs(f(arr[min]) - v) < Math.abs(f(arr[max]) - v) ? min : max
 }
 
 
@@ -66,9 +66,9 @@ document.addEventListener('scroll', function (e) {
 
 	if(active) set_current(active, false);
 
-	active = nearest(headings, function(heading){
+	active = headings[nearest(headings, function(heading){
 		return heading.getBoundingClientRect().top
-	}, 40)
+	}, 40)]
 
 	set_current(active, true)
 
@@ -96,7 +96,7 @@ var tv_wrap = document.getElementById('tv-wrap')
 var tv = document.getElementById('tv')
 var tv_img = document.getElementById('tv-img')
 var tv_markers = [].slice.call(document.querySelectorAll('[image]'))
-var tv_pointer = document.getElementById('quick-pointer')
+// var tv_pointer = document.getElementById('quick-pointer')
 var tv_scroller = document.getElementById('tv-scroller')
 var quick_content = document.getElementById('quick-content')
 
@@ -123,36 +123,75 @@ tv_markers.forEach(function(tv_marker) {
 document.addEventListener('scroll', function (e) {
 
 	if(active_marker){
-		// active_marker.className= '';
+		active_marker.className= '';
 		// active_marker.img.style.display = 'none'
 	}
 
-	active_marker = nearest(tv_markers, function(tv_marker){return tv_marker.getBoundingClientRect().top}, innerHeight/2)
-	// active_marker.className = 'active'
+	var get_top = function(tv_marker){return tv_marker.getBoundingClientRect().top}
+
+	var active_marker_index = nearest(tv_markers, get_top, innerHeight/2)
+	active_marker = tv_markers[active_marker_index]
+	var next_marker = tv_markers[active_marker_index+1] || active_marker
+	var prev_marker = tv_markers[active_marker_index-1] || active_marker
+
+	active_marker.className = 'active'
 	// active_marker.img.style.display = 'block'
 
+	var wrap_rect = tv_wrap.getBoundingClientRect()
+	var active_rect = active_marker.img.getBoundingClientRect()
+	var active_marker_rect = active_marker.getBoundingClientRect()
+	
+	var ideal_top_offset = innerHeight/2 - active_rect.height/2
+	
+	var tv_bottom = active_rect.height + ideal_top_offset
 
-	var diff = tv_scroller.getBoundingClientRect().top -
-		active_marker.img.getBoundingClientRect().top
+	// tv_pointer.style.top = active_marker.getBoundingClientRect().top - quick_content.getBoundingClientRect().top + 10 + 'px'
 
-	tv_scroller.style.top = diff + 60 + 'px'
-
-	var rect = tv_wrap.getBoundingClientRect()
-	var tv_height = active_marker.img.getBoundingClientRect().height
-	var top_offset = innerHeight/2 - tv_height/2
-	var tv_bottom = tv_height + top_offset + 60
-
-	tv_pointer.style.top = active_marker.getBoundingClientRect().top - quick_content.getBoundingClientRect().top + 10 + 'px'
-
-	if(rect.top <= top_offset && rect.bottom > tv_bottom){
+	if(wrap_rect.top <= ideal_top_offset && wrap_rect.bottom > tv_bottom){
 		tv.className = 'floating'
-		tv.style.top = top_offset + 'px'
 		tv.parentElement.className = 'floating'
-	} else if (rect.bottom <= tv_bottom){
+		console.log(active_rect.top< innerHeight/2)
+
+		function tween_top(cur, next) {
+			var cur_marker_rect = cur.getBoundingClientRect()
+			var next_marker_rect = next.getBoundingClientRect()
+			var cur_rect = cur.img.getBoundingClientRect()
+			var next_rect = next.img.getBoundingClientRect()
+
+			var tv_scroller_top = tv_scroller.getBoundingClientRect().top
+
+			var r = (innerHeight/2 - cur_marker_rect.top)/
+			(next_marker_rect.top - cur_marker_rect.top)
+
+			var cur_top_scroll = tv_scroller_top -
+			cur_rect.top + innerHeight/2 - cur_rect.height/2 + 60
+
+			var next_top_scroll = tv_scroller_top -
+			next_rect.top + innerHeight/2 - next_rect.height/2 + 60
+			console.log(r)
+
+			if(cur === next) return cur_top_scroll;
+
+			return cur_top_scroll + r*(next_top_scroll - cur_top_scroll)
+		}
+
+
+		if(active_marker_rect.top < innerHeight/2){
+
+			tv_scroller.style.top = tween_top(active_marker, next_marker) + 'px'
+
+		} else {
+
+			tv_scroller.style.top = tween_top(prev_marker, active_marker) + 'px'
+
+		}
+
+	} else if (wrap_rect.bottom <= tv_bottom){
 		tv.className = 'bottom'
 		tv.parentElement.className = 'bottom'
 
-		diff = tv_wrap.getBoundingClientRect().height - tv_scroller.getBoundingClientRect().height + 60
+		diff = tv_wrap.getBoundingClientRect().height 
+			- tv_scroller.getBoundingClientRect().height + 60 + 60
 		tv_scroller.style.top = diff + 'px'
 	} else {
 		tv.className = ''
