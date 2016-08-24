@@ -108,6 +108,10 @@
     max-height:initial;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media (max-width: 1300px) {
     #intro .demo {
         max-width: 550px;

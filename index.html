@@ -9,18 +9,18 @@
     <link rel="stylesheet" type="text/css" href="static/css/docs.css">
     <link rel="stylesheet" type="text/css" href="static/css/prior-art.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600" rel="stylesheet">
 
 </head>
 <body>
 <div id='header'>
     
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600" rel="stylesheet">
     <!-- <div>Alpha Release | Don't mind the bugs!</div> -->
     <div class='spacer'></div>
     <a href="//alpha.trycarbide.com/@bijection">Examples</a>
     <a href="//alpha.trycarbide.com/anonymous">Anonymous</a>    
     <a href="//alpha.trycarbide.com/me">My Notebooks</a>
-    <a href="/">New Notebook</a>
+    <a href="/new">New Notebook</a>
 </div>
 <div id="splash">
     <div id='intro'>
@@ -303,10 +303,7 @@ data + 2 </code></pre>
 
 
             <h1 id='menagerie'>Widgets</h1>
-
-
-            <p>
-            </p>
+            To try all of these live, visit the <a href="http://alpha.trycarbide.com/@bijection/b1542b3b90cc0b80a56f8393afa46821">Widget Menagerie</a>  
 
             <h2>Numbers</h2>
             <div id='just-call-it-a-zoo'>
@@ -402,7 +399,7 @@ data + 2 </code></pre>
             </div>
 
             <h2>Making Your Own Widgets 🎂</h2>
-            Carbide widgets are just react components (<a href="/">what's a react component</a>) with a static class property <code>title</code> and a static member function called match, with the signature <code>match(value, ast)</code>. Whenever you open a widget on some expression, carbide runs the expressions value and ast through all of the installed widgets' match functions to figure out which widgets it should show in the tabs. 
+            Carbide widgets are just react components (<a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus">what's a react component</a>) with a static class property <code>title</code> and a static member function called match, with the signature <code>match(value, ast)</code>. Whenever you open a widget on some expression, carbide runs the expressions value and ast through all of the installed widgets' match functions to figure out which widgets it should show in the tabs. 
 
             If you have a react component with a static title and match function, you can add it to your notebook like this: 
             <pre><code class="language-javascript">import React from 'react'
@@ -444,7 +441,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             </p>
 
             <p>
-                In cas the optimization engine ever gets stuck in a place with zero gradient, the previous working parameters are remembered, so each interaction can start with the closest known reasonable point (We know it affectionately as Guillermo "Memo"'s Memoization). 
+                In case the optimization engine ever gets stuck in a place with zero gradient, the previous working parameters are remembered, so each interaction can start with the closest known reasonable point (We know it affectionately as Guillermo "Memo"'s Memoization). 
             </p>
 
             <h2>Strings</h2>
@@ -478,7 +475,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             </p>
             <h2>SystemJS/JSPM</h2>
             <p>
-                NPM is probably one of the largest and most successful package managers ever created (albeit not without a few <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">kerfluffles</a>). So it was pretty important to be able to easily import modules from NPM. 
+                NPM is probably one of the largest and most successful package managers ever created (albeit not without a few <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">kerfuffles</a>). So it was pretty important to be able to easily import modules from NPM. 
             </p>
             <p>
                 Originally, we had written our own tiny implementation of NPM which would run in the browser (calling the official NPM API endpoint, locating tarballs, unpacking them in the browser, and loading the files appropriately). Separately, we were using Babel and Webpack to develop the application itself. 
@@ -512,7 +509,7 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
             </p>
 
             <p>
-                To accomplish this we've built our own Hot Reloading engine on top of JSPM. It's less agressive in reloading dependents than the <a href="https://github.com/capaj/systemjs-hot-reloader">SystemJS hot reloader</a> and the <a href="https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack">Webpack Hot module replacement</a> system. It exploits the fact that in ES6, references are "live" so imports can be updated simply by calling a getter. 
+                To accomplish this we've built our own Hot Reloading engine on top of JSPM. It's less aggressive in reloading dependents than the <a href="https://github.com/capaj/systemjs-hot-reloader">SystemJS hot reloader</a> and the <a href="https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack">Webpack Hot module replacement</a> system. It exploits the fact that in ES6, references are "live" so imports can be updated simply by calling a getter. 
             </p>
 
             <p>
@@ -553,11 +550,11 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
 
             <h1>Future</h1>
 
-
             <h2>Preview: Adding Custom Kernels</h2>
             Although Carbide is Javascript-first, parsing, compiling, and running code are all implemented as external modules. This means that it's possible to define a javascript module that replaces the carbide kernel in order to run code in a different language. 
 
             Here's an example of what a minimal kernel will probably lookl ike: 
+
 
 <pre><code class="language-javascript">export async function parse(code){
     // Return some AST
@@ -573,19 +570,21 @@ export async function evaluate(ast, cell){
 </code></pre>
 
             <h2>Preview: Watlab Kernel</h2>
-            Watlab is compile-to-javascript language inspired by Matlab. Almost all of the syteax is the same as ES2015, with addition of a postfix function application operator, matrix literals, and standard matrix operators (e.g. <code>A\b</code> to solve a system of linear equations).    
+            Watlab is compile-to-javascript language inspired by Matlab. Almost all of the syntax is the same as ES2015, with addition of a postfix function application operator, matrix literals, and standard matrix operators (e.g. <code>A\b</code> to solve a system of linear equations).    
 
             <img src="/static/img/watlab.gif" style="width: 50%; display: block">
 
             <h2>Preview: Python Kernel</h2>
+
             A tiny kernel that communcates with a local python REPL. Pros: filesystem access, cool python libraries. Cons: requires an <code>npm install; npm start</code> command.
             <img src="/static/img/python.png" style="width: 50%; display: block">
             
             <h2>Preview: MIT Scheme Kernel</h2>
             A tiny kernel that communcates with a local MIT Scheme REPL. Pros: filesystem access, arcane wizardry. Cons: requires an <code>npm install; npm start</code> command, arcane wizardry.
             <img src="/static/img/ltuf.png" style="width: 20%; display: block">
+
             
-            <h2>Preview: Time Travelling</h2>
+            <h2>Preview: Time Traveling</h2>
             One of the features that didn't quite make it into the alpha release is a Bret Victor Style program execution scrubber that lets you get a more intuitive sense of stuff like for loops: 
             <pre>[images]</pre>
             Stay Tuned.
