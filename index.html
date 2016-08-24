@@ -160,21 +160,49 @@
         For example, we could represent the number "42" as a slider with the bounds set between 0 and 100. As a visualization, this gives me some spatial sense of how large this number is. When I drag the slider, it would make sense for the part of the code which said "42" to be replaced with the new value. 
         </p>
 
-
         <p>
-            We start to get into trouble when the "42" isn't actually found in the code, and values are computed rather than literal. 
-
+            We start to get into trouble when the "42" isn't actually found in the code, and values are computed rather than literal. To figure this out we have to essentially <b>run the program backwards</b>— fixing the outputs, and solving for the inputs. To do this, we use a technique from machine learning, called backpropagation. If you're interested, there's a <a href="#backprop">longer technical explanation</a> of what it is and how it works below.
         </p>
-        <p>For example, a slider attached to a number gives a nice interface for . </p>
         
         <h2>Multiple Cells</h2>
         <p image='static/mp4/inserting-cells.mp4'>
-        Code in carbide lives in boxes called cells. In the examples before this we only had one cell, but when you code gets bigger, or when you want to try out different approaches to a problem at the same time, you can create extra cells by clicking any of the ‘+ insert cell’ buttons. To share variables between cells, use the javascript import/export syntax. Check out the babel ES2105 guide for a full treatment of the syntax.
+        Carbide is a <b>notebook programming environment</b>, which means that the code is stuck into little boxes called cells. Each cell is a little playground where you can build stuff, aided by all the fancy tools for seeing, poking, and prodding. 
         </p>
+        <p>
+        To <b>insert a cell</b>, click in the area either immediately <b>before or after a cell</b>. 
+        </p>
+        <p>
+        Unlike most other notebook programming systems, you'll find yourself needing to make cells much less frequently in Carbide because you don't need to break up your program into multiple cells to visualize what's going on. 
+        </p>
+        <p>
+        With multiple cells you can <b>try out multiple approaches</b> to a given problem at <b>the same time</b> without necessarily committing to any particular change. 
+        </p>
+
+        <p>
+        <b>Each cell has a file name</b>, which is shown in the cell toolbar on the bottom of each cell. This filename comes into play when sharing information between cells with the ES6 <tt>import/export</tt> syntax. 
+        </p>
+
+        <pre><code class="language-javascript">// cell0.js
+export default 420 </code></pre>
+
+        <pre><code class="language-javascript">// cell1.js
+import data from './cell0.js'
+data + 2 </code></pre>
+
         <h2>Saving and Sharing</h2>
         <p image='static/mp4/saving-gist.mp4'>
-        Carbide notebooks are all public (<a href="/">can I has private notebooks</a>), and they get stored on github as gists. 
-        If you're logged in when you click Save or press command S the gist will be under your github account. If you aren't, it will be on carbide-public. Notebook urls stay the same as long as you don't delete the underlying gist, so you can copy and paste links from the address bar to share your creations.
+
+        Currently, <b>all Carbide notebooks</b> are represented as <b>public Github Gists</b>. 
+
+        </p>
+
+        <p>
+        If you are <b>not logged in</b>, hitting Cmd-S or pressing the "Save" button creates a new Gist under the <a href="https://gist.github.com/carbide-public">carbide-public</a> account. 
+        If you <b>are logged in</b>, the gist will be saved under your own personal Github account.
+        </p>
+
+        <p>
+            Notebooks are represented in a nice human-readable plain text format: each cell corresponds to a different file, with a markdown header file containing all the metadata as a comment. 
         </p>
     </div>
 </div>
@@ -385,10 +413,14 @@ doc.kernel.widgets.push(YOLOWidget)</code></pre>
                 Quasi-Newton methods need to calculate the gradient of a function at each step to determine which direction to travel toward. Currently this entails evaluating the function several times with slight tweaks to the existing parameters (in the future one could imagine implementing <a href="https://en.wikipedia.org/wiki/Automatic_differentiation">automatic differentiation</a> so one would only need to evaluate once per step). 
             </p>
 
+            <p>
+                In cas the optimization engine ever gets stuck in a place with zero gradient, the previous working parameters are remembered, so each interaction can start with the closest known reasonable point (We know it affectionately as Guillermo "Memo"'s Memoization). 
+            </p>
+
             <h2>Strings</h2>
             <img src="/static/img/fizzbuzz.gif">
             <p>
-
+                While there have been many decades of work done on improving numerical optimization, there isn't nearly as much work done on generalizing the idea to other data structure. 
             </p>
 
 
