@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/docs.css">
     <link rel="stylesheet" type="text/css" href="static/css/prior-art.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,600">
 
 </head>
 <body>
@@ -42,7 +42,7 @@
                     <li>Requires <b>no installation</b> or <b>setup</b></li>
                     <li>Supports <b>Javascript</b>/<b>ES2015</b></li>
                     <li>Imports modules <b>automatically</b>  from <b>NPM</b> or <b>GitHub</b></li>
-                    <li><b>Saves</b> and <b>loads</b> directly to and from <b>Github Gists</b></li>
+                    <li><b>Saves</b> and <b>loads</b> directly to and from <b>GitHub Gists</b></li>
 
                     <!-- <li>Is built for Notebook Programming</li> -->
                     <!-- <li>Can run your code in an <b>external window</b></li>     -->
@@ -109,7 +109,6 @@
         </p>-->
         <p>
             Currently Carbide supports the latest version of <b>Javascript</b>, known as ES2015 through built-in support for BabelJS. You can even use ES7's <b>async/await</b> features without wrapping your code in functions. 
-            
         </p>
         <p>
             In addition to running code locally within the editor, you can choose to <b>run code within a separate window</b> (this is nice for building out apps which need access to the DOM). To switch to this mode, click on the <b>language dropdown</b> on the top of the page, and select "<b>Javascript (Separate Window)</b>". 
@@ -125,7 +124,7 @@
         <div class="ineedtopee">
         <h2>Attaching Probes</h2>
         
-        <p  image='static/mp4/attaching-probes.mp4'>
+        <p image='static/mp4/attaching-probes.mp4'>
             In Carbide, you see the results of running your program in "probes" which are displayed <b>in between the lines</b> of your code. 
         </p>
         <p>
@@ -147,18 +146,20 @@
         <div class="ineedtopee">
         <h2>Visualization Widgets</h2>
         
-        <p image='static/mp4/lots-of-widgets.mp4'>When you want to see more than the basic summary probes show you, you can <b>click any probe</b> to open a "widget", which appears to the right of your code. </p>
-
+        <p image='static/mp4/lots-of-widgets.mp4'>
+            When you want to see more than the basic summary probes show you, you can <b>click any probe</b> to open a "widget", which appears to the right of your code. 
+        </p>
 
         <p>
             <b>Hovering over a widget</b> expands a tab bar on top, which allows you to <b>switch between different representations</b> of your data. A string like "orange" can be visualized as color, as plain text, or as JSON, and widgets allow you to easily switch between them. 
         </p>
 
-        <p>Beyond simply looking at a piece of data, visualization widgets can also incorporate knowledge of your code's abstract syntax tree. This allows us to visualize <tt>array[0]</tt> as a selector into the array, or <tt>“house” == “horse”</tt> as an interactive string comparison, rather than the uninformative <tt>false</tt>.</p>
-
         <p>
-         You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.
-         </p>
+            Beyond simply looking at a piece of data, visualization widgets can also incorporate knowledge of your code's abstract syntax tree. This allows us to visualize <tt>array[0]</tt> as a selector into the array, or <tt>“house” == “horse”</tt> as an interactive string comparison, rather than the uninformative <tt>false</tt>.
+        </p>
+        <p>
+            You can see more examples of these kinds of widgets in the <a href='#menagerie'>Widget Menagerie</a> section.
+        </p>
         </div>
         </div>
 
@@ -168,13 +169,12 @@
         <h2>Manipulation Widgets</h2>
         
         
-        
-        The <b>exact same widgets</b> which were used for visualizing data can also be used for <b>manipulating data</b>. This is an idea which really lies at the heart of what Carbide is— peeling away the one-way mirror found in most data visualization tools which forces you to look and not touch. 
-
+        <p image='static/mp4/murrica.mp4'>
+            The <b>exact same widgets</b> which were used for visualizing data can also be used for <b>manipulating data</b>. This is an idea which really lies at the heart of what Carbide is— peeling away the one-way mirror found in most data visualization tools which forces you to look and not touch. 
         </p>
 
         <p>
-        For example, we could represent the number "42" as a slider with the bounds set between 0 and 100. As a visualization, this gives me some spatial sense of how large this number is. When I drag the slider, it would make sense for the part of the code which said "42" to be replaced with the new value. 
+            For example, we could represent the number "42" as a slider with the bounds set between 0 and 100. As a visualization, this gives me some spatial sense of how large this number is. When I drag the slider, it would make sense for the part of the code which said "42" to be replaced with the new value. 
         </p>
 
         <p>
@@ -188,7 +188,7 @@
         <div class="ineedtopee">
         <h2>Multiple Cells</h2>
         
-        
+        <p image='static/mp4/inserting-cells.mp4'>
         Carbide is a <b>notebook programming environment</b>, which means that the code is stuck into little boxes called cells. Each cell is a little playground where you can build stuff, aided by all the fancy tools for seeing, poking, and prodding. 
         </p>
         <p>
@@ -219,13 +219,14 @@ data + 2 </code></pre>
         <video class="jetengine" autoplay loop src='static/mp4/saving-gist.mp4'></video>
         <div class="ineedtopee">
         <h2>Saving and Sharing</h2>
-        Currently, <b>all Carbide notebooks</b> are represented as <b>public Github Gists</b>. 
-
+        
+        <p image='static/mp4/saving-gist.mp4'>
+            Currently, <b>all Carbide notebooks</b> are represented as <b>public GitHub Gists</b>. 
         </p>
 
         <p>
-        If you are <b>not logged in</b>, hitting Cmd-S or pressing the "Save" button creates a new Gist under the <a href="https://gist.github.com/carbide-public">carbide-public</a> account. 
-        If you <b>are logged in</b>, the gist will be saved under your own personal Github account.
+            If you are <b>not logged in</b>, hitting Cmd-S or pressing the "Save" button creates a new Gist under the <a href="https://gist.github.com/carbide-public">carbide-public</a> account. 
+            If you <b>are logged in</b>, the gist will be saved under your own personal GitHub account.
         </p>
 
         <p>
@@ -625,15 +626,15 @@ export async function evaluate(ast, cell){
 <div class='prior-art'>
     <h1>Halp + Hallu</h1>
 
-            Send us an email at your favorite address:
-            <ul>
+    Send us an email at your favorite address:
+    <ul>
 
-            <li>help@trycarbide.com</li>
-            <li>bugs@trycarbide.com</li>
-            <li>hello@trycarbide.com</li>
-            <li>asjdfjiweasjdf@trycarbide.com</li>
+        <li>help@trycarbide.com</li>
+        <li>bugs@trycarbide.com</li>
+        <li>hello@trycarbide.com</li>
+        <li>asjdfjiweasjdf@trycarbide.com</li>
 
-            </ul>
+    </ul>
 
 
     <h1>Acknowledgements</h1>
