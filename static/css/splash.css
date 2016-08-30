@@ -26,12 +26,11 @@
 }
 
 #header {
-    display:flex;
-    height:40px;
-    align-items:center;
-    background:#e4eaff;
-    padding:2px 20px;
-    display: none;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    background: #4b608e;
+    padding: 2px 20px;
 }
 
 #header a {
@@ -44,6 +43,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 60px;
+    padding-top: 0;
 	align-items: flex-start;
 }
 
